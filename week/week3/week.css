@@ -1,0 +1,311 @@
+table, td, th {
+  border: 1px solid #232323;
+}
+
+table {
+  margin: 14px auto;
+  padding: 7vh 0;
+  border-collapse: collapse;
+}
+
+#calendar {
+  width: 66%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#calendar #app-name-portrait {
+  display: none;
+}
+
+#calendar #theme-portrait {
+  display: none;
+}
+
+#calendar thead tr:first-child th div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#calendar h4 {
+  margin: 0;
+  padding: 0.8vw 0 0.2vw;
+  font-size: 1.4vw;
+  font-weight: 300;
+}
+
+#calendar h3 {
+  margin: 0;
+  padding: 0 2vw;
+  font-size: 2vw;
+  font-weight: 700;
+  display: inline-block;
+}
+
+#calendar .weekday {
+  font-size: 1.7vw;
+  font-weight: 300;
+  padding: 8px 0 5px;
+  border-bottom: 1px solid white !important;
+}
+
+#calendar tbody td {
+  height: 5.2vw;
+  width: 5.2vw;
+  font-size: 0.8vw;
+  font-weight: 600;
+  vertical-align: top;
+  padding: 0.5vw;
+  -webkit-transition: font-size .6s ease;
+  transition: font-size .6s ease;
+}
+
+#calendar tbody td:hover {
+  font-size: 2.1vw;
+}
+
+#calendar img {
+  width: 3.8vw;
+  vertical-align: top;
+  position: relative;
+  top: 0.5vw;
+}
+
+#calendar #current-day {
+  background-color: #E1E1E1;
+}
+
+.background-text {
+  position: absolute;
+  opacity: 0.22;
+  font-size: 20vw;
+  z-index: -1;
+  margin: 0;
+  top: 50%;
+  left: 56%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+h4.background-text {
+  top: 80%;
+  font-size: 7vw;
+}
+
+.tooltip span {
+  display: none;
+}
+
+.tooltip:hover {
+  cursor: help;
+  position: relative;
+}
+
+.tooltip:hover span {
+  display: block;
+  font-size: 1vw;
+  padding: 6px;
+  white-space: pre-wrap;
+  width: 12vw;
+  z-index: 100;
+  background-color: #EDEDED;
+  color: black;
+  border-radius: 6px;
+  left: 2vw;
+  top: 4vw;
+  position: absolute;
+}
+
+dialog {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background-color: rgba(29, 29, 29, 0.85);
+  position: fixed;
+}
+
+#fav-color h4 {
+  margin: 32px 0 18px;
+  font-size: calc(12px + 1.6vw);
+  font-weight: 300;
+  padding: 0 2vw 2px;
+  border-bottom: 1px solid #222;
+}
+
+#fav-color #update-theme-button {
+  margin: 24px 0 20px;
+  padding: 10px 26px;
+  font-size: calc(8px + 0.6vw);
+  font-weight: 400;
+  border: 3px solid #222;
+}
+
+#fav-color #update-theme-button:hover {
+  color: white;
+  background-color: #222;
+}
+
+#fav-color #color-options {
+  width: 84%;
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#fav-color #color-options h5 {
+  display: inline;
+  margin: 8px 0 12px;
+  font-size: calc(6px + 0.6vw);
+  font-weight: 500;
+}
+
+#fav-color #color-options .color-option {
+  margin: 0.4vw;
+  width: 4.5vw;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#fav-color #color-options .color-preview {
+  width: calc(16px + 1.7vw);
+  height: calc(16px + 1.7vw);
+  padding: 0;
+  -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+          clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.popup {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  margin: 22vh auto 0;
+  background-color: #FEFDFD;
+  border-radius: 20px;
+}
+
+i {
+  color: white;
+  font-size: 1.2vw;
+}
+
+.button {
+  border-radius: 500px;
+  outline: none;
+  margin: 0 auto;
+  background-color: Transparent;
+}
+
+.font {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#make-note h4 {
+  margin: 32px 0 18px;
+  font-size: calc(16px + 1.6vw);
+  font-weight: 300;
+}
+
+#make-note #edit-post-it {
+  height: 340px;
+  width: 42vw;
+  font-size: 2.6vw;
+  padding: 14px;
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+}
+
+#make-note .post-it-button {
+  display: inline;
+  margin: 24px 0 20px;
+  padding: 10px 26px;
+  font-size: calc(12px + 0.6vw);
+  font-weight: 400;
+}
+
+#make-note #add-post-it {
+  border: 3px solid #222;
+}
+
+#make-note #add-post-it:hover {
+  color: white;
+  background-color: #222;
+}
+
+#make-note #delete-button {
+  border: 3px solid #D71C1F;
+  background-color: #D71C1F;
+  color: white;
+}
+
+#make-note #delete-button:hover {
+  background-color: white;
+  color: #D71C1F;
+}
+
+dialog {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background-color: rgba(29, 29, 29, 0.85);
+  position: fixed;
+}
+/*# sourceMappingURL=week.css.map */
