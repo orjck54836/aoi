@@ -1,7 +1,8 @@
 <template>
     <div>
+      <div class="form-signin">
         <form @submit.prevent="signIn">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 fw-normal">登入</h1>
             <label for="inputEmail" class="visually-hidden">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" v-model="user.username" required autofocus>
             <label for="inputPassword" class="visually-hidden">Password</label>
@@ -11,15 +12,14 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">確認</button>
         </form>
+      </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
   data(){
     return {
       user:{
@@ -37,7 +37,9 @@ export default {
         this.$http.post(api ,vm.user).then((response) => {
         console.log(response.data)
         if(response.data.success){
-          vm.$router.push('/products')
+          vm.$router.push('/index/main')
+        }else{
+          alert('請輸入正確帳號密碼')
         }
         })
     }
@@ -46,20 +48,16 @@ export default {
 </script>
 <style scoped>
 
-body {
+form {
   height: 100%;
 }
-
 body {
-  display: table;
+  display: flex;
+  -ms-flex-align: center;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
-  margin:auto;
-
 }
-
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -89,5 +87,17 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
 </style>

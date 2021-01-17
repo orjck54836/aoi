@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+
 
 export default {
+  
   name: 'App',
   created(){
     const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}`
@@ -21,5 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~bootstrap/scss/bootstrap";
+@import "./assets/all";
+
 </style>

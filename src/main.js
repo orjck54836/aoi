@@ -4,16 +4,31 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import "bootstrap"
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css';
+import VeeValidate from 'vee-validate'
+import zhTWValidate from 'vee-validate/dist/locale/zh_TW';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-
+import currencyFilter from './filters/currency'
+//下方載入中文語系
+VeeValidate.Validator.localize('zh_TW', zhTWValidate);
+import './bus'
 import router from './router'
 Vue.use(VueAxios, axios)
+Vue.use(VeeValidate)
 import App from './App'
 Vue.config.productionTip = false
+Vue.component('Loading',Loading)
+Vue.filter('currency',currencyFilter)
 axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */
 new Vue({
+  created () {
+    AOS.init()
+  },
   el: '#app',
   components: { App },
   template: '<App/>',
