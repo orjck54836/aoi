@@ -187,8 +187,16 @@ export default {
         },
         plus(id,qty){
             const vm = this;
-            console.log(vm.cart.carts)
-            qty--;
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+            const cart = {
+                product_id:id,
+                qty,
+            };
+            vm.isLoading = true
+            this.$http.post(api,{data:cart}).then((response) => {
+            console.log(response)  
+            vm.getCart();               
+            });
         },
         minus(id,qty){
             const vm = this;
