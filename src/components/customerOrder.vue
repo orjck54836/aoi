@@ -3,12 +3,7 @@
     <loading :active.sync="isLoading"></loading>
     <img src="./images/cart.jpg" class="col-md-12" style="height:35vw">
     <div class="row col-md-12 mt-md-4" >
-        <div class="col-md-3  text-center " style="position: sticky;top: 60px;">
-              <h2 class="">種類で探す</h2>
-              <h4 class="bg-secondary">《浅煎り焙煎》</h4>
-              <h4 class="bg-secondary">《中煎り焙煎》</h4>
-              <h4 class="bg-secondary">《深煎り焙煎》</h4>
-        </div>
+        
         <router-view></router-view>
     </div>
   </div>

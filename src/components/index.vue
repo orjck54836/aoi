@@ -1,24 +1,15 @@
 <template>
     <div>
-        <header class="site-header sticky-top " >
-         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2 justify-content-center"></router-link>
+        <header class="site-header sticky-top col-md-12" >
+         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2 col-sm-2 justify-content-center"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end" >   
-                <router-link to="/admin/coffee" class="row col-md-2 align-items-center text-dark">ザ.コーヒーとは</router-link>
-                <router-link to="/admin/baking" class="row col-md-2 align-items-center text-dark">焙煎</router-link>
+                <router-link to="/admin/coffee" class="row col-md-3 mr-2 align-items-center ho">ザ.コーヒーとは</router-link>
+                <router-link to="/admin/baking" class="row col-md-3 align-items-center ho">焙煎</router-link>
                 <!-- 按鈕區 -->
-                <button type="button" class="btn btn-light"@click="goShop" v-model="check">
-                <i class="fas fa-shopping-cart"></i>
-                Shoping
-                </button>
-                <button type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" >
-                <i class="fas fa-user"></i>
-                Sign IN
-                </button>
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut">
-                <i class="fas fa-sign-out-alt"></i>
-                Sign Out
-                </button>
-                <router-link to="/admin/count"><i class="fas fa-shopping-cart " style="font-size:25px;"><span class="badge badge-danger badge-pill"  v-for="item in cart.carts" :key="item.id" >{{Length}}</span></i></router-link>
+                <i class="row col-md-2 align-items-center fas fa-shopping-cart fa-2x" @click="goShop" v-model="check" style="cursor: pointer;"></i>
+                <i class="row col-md-2 fas fa-user fa-2x align-items-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
+                <i class="row col-md-2 align-items-center fas fa-sign-out-alt  fa-2x"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
+                <router-link to="/admin/count" class="row col-md-3 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{Length}}</span></i></router-link>
             </nav>
         </header>
         <main id="main" >
@@ -124,7 +115,10 @@ export default {
         const vm = this;
         this.$http.post(api,vm.user).then((response) => {
         console.log(response)
-        
+        const token = response.data.token;
+        const expired = response.data.expired;
+        console.log(token,expired);
+        document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
         if(response.data.success == true){
           $('#exampleModal').modal('hide');
           vm.check = true
@@ -169,6 +163,12 @@ export default {
   },
   created(){
       this.getCart();
+      //網址來源https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+      const cookieValue = document.cookie.split(';').find(row => row.startsWith('hexToken'))
+      .split('=')[1];
+      console.log('cookieValue',cookieValue);
+      //網址來源https://github.com/axios/axios#global-axios-defaults
+      this.$http.defaults.headers.common.Authorization = cookieValue;
   }
 }
 </script>
@@ -177,12 +177,19 @@ export default {
 html,body{
     height: 100vh;
 }
+.ho{
+  color:black;
+}
+.ho:hover{
+  color:red;
+  font-size:16px;
+  cursor: pointer;
+}
 .site-header {
   height:4rem;
   display:flex;
 }
 .site-header a {
-  color: white;
   transition: color .15s ease-in-out;
 }
 .site-header button {

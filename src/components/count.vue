@@ -5,11 +5,11 @@
                 <table class="table">
                 <thead>
                     <th></th>
-                    <th>品名</th>
+                    <th>商品</th>
                     <th>數量</th>
-                    <th>單價</th>
+                    <th>定價</th>
                 </thead>
-                <tbody>
+                <tbody >
                     <tr  v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
                     <td class="align-middle">
                         <button type="button" class="btn btn-outline-danger btn-sm" 
@@ -23,13 +23,13 @@
                         已套用優惠券
                         </div>
                     </td>
-                    <td class="align-middle"><i class="far fa-plus-square" @click="plus(item)"></i>{{ item.qty }}{{ item.product.unit }}<i class="far fa-minus-square" @click="minus(item)"></i></td>
-                    <td class="align-middle text-right">{{ item.final_total }}</td>
+                    <td class="align-middle"><i class="far fa-plus-square" @click="plus(item.id,item.qty)"></i>{{ item.qty }}/{{ item.product.unit }}<i class="far fa-minus-square" @click="minus(item.id,item.qty)"></i></td>
+                    <td class="align-middle">{{ item.final_total }}</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                    <td colspan="3" class="text-right">總計</td>
+                    <td colspan="3" class="text-right">総額</td>
                     <td class="text-right">{{ cart.total }}</td>
                     </tr>
                     <tr  v-if="cart.final_total !== cart.total">
@@ -101,7 +101,7 @@ export default {
         isLoading: false,
         coupon_code:'',
         cart: {},
-        length:'',
+        aa:'',
         status:{
             loadingItem:'',
         },
@@ -129,37 +129,18 @@ export default {
         getProduct(id){
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
             const vm = this;
-            vm.status.loadingItem = id
             this.$http.get(api).then((response) => {
-            console.log(response.data)                      
+            console.log('ll',response.data)                      
             vm.product = response.data.product;
-            $('#productModal').modal('show')
-            vm.status.loadingItem = ''
-            });
-        },
-        addtoCart(id,qty = 1){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-            const vm = this;
-            vm.status.loadingItem = id;
-            const cart = {
-                product_id:id,
-                qty,
-            };
-            this.$http.post(api,{data:cart}).then((response) => {
-            console.log(response)                      
-            vm.status.loadingItem = ''
-            vm.getCart()
-            $('#productModal').modal('hide')
             });
         },
         getCart(){
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
             const vm = this;
-            vm.isLoading = true
+            vm.isLoading = true;
             this.$http.get(api).then((response) => {
-            console.log(response.data)
-            vm.cart = response.data.data
-            vm.length = vm.cart.carts.length.toString();
+            vm.cart = response.data.data;
+            console.log('hh',response.data.data)
             vm.isLoading = false
             });
         },
@@ -204,27 +185,20 @@ export default {
                 }
             });
         },
-        plus(item){
+        plus(id,qty){
             const vm = this;
-            console.log(vm.cart.carts[0].id)
-            let pr = parseInt(vm.cart.carts[0].product.price);
-            vm.cart.carts[0].qty++;
-            vm.cart.carts[0].final_total += pr;
+            console.log(vm.cart.carts)
+            qty--;
         },
-        minus(item){
+        minus(id,qty){
             const vm = this;
-            let pr = parseInt(vm.cart.carts[0].product.price);
-            console.log(vm.cart.carts[0].qty)
-            vm.cart.carts[0].qty--;
-            vm.cart.carts[0].final_total -= pr;
-            if(vm.cart.carts[0].qty < 1){
-                vm.cart.carts[0].qty = 1;
-                vm.cart.carts[0].final_total = pr;
-            }
+            console.log(vm.cart.carts)
+            qty--;
         }
 
     },
     created() {
+        this.getProduct();
         this.getProducts();
         this.getCart();
         this.couponCreat()

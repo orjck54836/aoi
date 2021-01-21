@@ -1,7 +1,17 @@
 <template>
-    <div class="row col-md-9">
-        <div v-for="item in products" :key="item.id">
-            <div style="height:20vw; background-size:cover;background-position: center" :style="{backgroundImage:`url(${item.imageUrl})`}" ></div>
+    <div class="row col-md-12">
+        <div class="col-md-4">            
+            <div style="height:20vw; background-size:contain;background-position: center;background-repeat:no-repeat;" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
+        </div>
+        <div class="col-md-8">
+            <h3 class="text-center mb-4">{{product.title}}</h3>
+            <h4 class="text-success ">この商品について</h4>
+            <h6 class="col-md-10 mb-4">{{product.description}}</h6>
+            <button @click.prevent="deCount">-</button>
+            <input type="text" v-model="qty" readonly>
+            <button @click.prevent="plCount">+</button>
+            <button class="bg-primary mb-4" @click.prevent="addtoCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
+            <div class="text-success mb-3" v-if="moji">{{moji}}</div>
         </div>
     </div>
 </template>
@@ -10,48 +20,53 @@
 export default {
         data(){
         return{
+            moji:'',
             product:{},
-            products: [],
-            isLoading: false,
-            coupon_code:'',
-            cart: {},
-            status:{
-                loadingItem:'',
-            },
-            form:{
-                user:{
-                    name:'',
-                    email:'',
-                    tel:'',
-                    address:'',
-                }
-            }
+            cart:{},
+            qty:1,         
         };
     },
     methods:{
-        getProducts(){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
-            const vm = this;
-            vm.isLoading = true
-            this.$http.get(api).then((response) => {       
-            vm.isLoading = false
-            vm.products = response.data.products;
-            console.log(vm.products)
-        });
-        },
         getProduct(id){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
             const vm = this;
-            vm.status.loadingItem = id
-            this.$http.get(api).then((response) => {                    
+            id = this.$route.params.id;
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
+            this.$http.get(api).then((response) => {                     
             vm.product = response.data.product;
-            $('#productModal').modal('show')
-            vm.status.loadingItem = ''
+            console.log('hhh',vm.product)
             });
         },
+        addtoCart(id,qty){
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+            const vm = this;
+            const cart = {
+                product_id:id,
+                qty,
+            };
+            this.$http.post(api,{data:cart}).then((response) => {
+            console.log(response)
+            if(response.status == 200){
+                vm.moji = 'カートに入れました！'
+            }                        
+            });
+        },
+        plCount(){
+            const vm = this;
+            vm.qty++;
+            if(vm.qty>10){
+                vm.qty = 10;
+            }
+        },
+        deCount(){
+            const vm = this;
+            vm.qty--;
+            if(vm.qty<1){
+                vm.qty = 1;
+            }
+        },
     },
-    created() {
-    this.getProducts();
+    created(){
+    this.getProduct();
     },
 }
 </script>

@@ -44,7 +44,7 @@ export default new VueRouter({
                             component:setsume,
                             },
                             {
-                                path:'detail',
+                                path:'detail/:id',
                                 name:'detail',
                                 component:detail,
                             },
