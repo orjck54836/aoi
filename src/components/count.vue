@@ -97,7 +97,6 @@ export default {
     data(){
         return{
         product:{},
-        products: [],
         isLoading: false,
         coupon_code:'',
         cart: {},
@@ -117,14 +116,7 @@ export default {
     },
     methods:{
         getProducts(){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
-            const vm = this;
-            vm.isLoading = true
-            this.$http.get(api).then((response) => {
-            console.log(response.data)
-            vm.isLoading = false
-            vm.products = response.data.products;
-            });
+            this.$store.dispatch('getProducts')
         },
         getProduct(id){
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
@@ -204,6 +196,14 @@ export default {
             qty--;
         }
 
+    },
+    computed: {
+        categories(){
+            return this.$store.state.categories;
+        },
+        products(){
+            return this.$store.state.products;
+        }
     },
     created() {
         this.getProduct();

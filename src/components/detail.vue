@@ -45,6 +45,8 @@ export default {
             };
             this.$http.post(api,{data:cart}).then((response) => {
             console.log(response)
+            localStorage.setItem('cart',response)
+            console.log('kkk',localStorage.getItem('cart',response))
             if(response.status == 200){
                 vm.moji = 'カートに入れました！'
             }                        
