@@ -1,5 +1,6 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"></loading>
         <header class="site-header sticky-top col-md-12" >
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2 col-sm-2 justify-content-center"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end" >   
@@ -19,13 +20,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title　" id="exampleModalLabel">会員登録</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-signin" >
                             <form @submit.prevent="signIn" >
-                                <h1 class="h3 mb-3 fw-normal">登入</h1>
                                 <label for="inputEmail" class="visually-hidden">Email address</label>
                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" v-model="user.username" required autofocus>
                                 <label for="inputPassword" class="visually-hidden">Password</label>
@@ -115,6 +115,7 @@ export default {
         const vm = this;
         this.$http.post(api,vm.user).then((response) => {
         console.log(response)
+        vm.$store.state.isLoading = true;
         const token = response.data.token;
         const expired = response.data.expired;
         console.log(token,expired);
@@ -122,10 +123,13 @@ export default {
         if(response.data.success == true){
           $('#exampleModal').modal('hide');
           vm.check = true
+          vm.$store.state.isLoading = false;
         }else{
           alert('請輸入正確帳號密碼')
         }
+        
         })
+        
     },
         signOut(){
         const api =`${process.env.APIPATH}/logout`;
@@ -169,7 +173,12 @@ export default {
       console.log('cookieValue',cookieValue);
       //網址來源https://github.com/axios/axios#global-axios-defaults
       this.$http.defaults.headers.common.Authorization = cookieValue;
-  }
+  },
+  computed:{
+    isLoading(){
+      return this.$store.state.isLoading
+    }
+  },
 }
 </script>
 

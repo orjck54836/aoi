@@ -1,14 +1,33 @@
 <template>
     <div class="row col-md-12">
+        <!-- Search bar -->
+        <div>
+            <form class="form-inline">
+              <div class="input-group">
+                <input class="form-control" type="text" v-model="searchText"
+                  placeholder="タイトルで探す" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button"
+                    @click="searchText = ''">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <!-- Search bar end-->
         <div class="col-md-3  text-center justify-content-start" style="position: sticky;top: 40px;" >
-                <h2 class="">種類で探す</h2>
-                <h4 class="bg-secondary" @click="select()" >《浅煎り焙煎》</h4>
-                <h4 class="bg-secondary" @click="select()" value="中煎">《中煎り焙煎》</h4>
-                <h4 class="bg-secondary" @click="select()" value="深煎">《深煎り焙煎》</h4>
-                <h4 class="bg-secondary" @click="select()" value="器具">《器具》</h4>
-            </div>
-        <div class="row col-md-9 justify-content-end" >
-            <div class="col-md-4 mb-md-4 " v-for="item in products" :key="item.id" >
+            <h2 class="mt-4 mb-4">種類で探す</h2>
+            <h4 @click.prevent="searchText = ''"
+              :class="{ 'active': searchText === ''}">
+              全部顯示</h4>
+            <h4 v-for="item in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}">
+                <i class="fa fa-street-view" aria-hidden="true"></i>
+                {{ item }}
+            </h4>
+        </div>
+        <div class="row col-md-9 justify-content-start" >
+            <div class="col-md-4 mb-md-4 " v-for="(item) in filterData" :key="item.id" >
                 <div class="card border-0 shadow-sm">
                     <div style="height: 20vw; background-size: cover; background-position: center" 
                         :style="{backgroundImage: `url(${item.imageUrl})`}">
@@ -39,11 +58,10 @@ export default {
         data(){
         return{
         product:{},
-        products: [],
         isLoading: false,
         coupon_code:'',
         cart: {},
-        
+        searchText:'',
         status:{
             loadingItem:'',
         },
@@ -54,20 +72,12 @@ export default {
                 tel:'',
                 address:'',
             }
-        }
+        },
         };
     },
     methods:{
         getProducts(){
-        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
-        const vm = this;
-        vm.isLoading = true
-        this.$http.get(api).then((response) => {
-        console.log('hi',response.data)
-        vm.isLoading = false
-        vm.products = response.data.products;
-        
-        });
+            this.$store.dispatch('getProducts')
         },
         getProduct(id){
             const vm = this;
@@ -83,6 +93,32 @@ export default {
             this.$http.get(api).then((response) => {
             console.log('value',response.data)
             });
+        },
+        getUnique(){
+           const vm = this;
+           vm.categories = new Set();
+           vn.products.forEach((item) => {
+               categories.add(item.category)
+           })
+           vm.categories = Array.form(category)
+        },
+    },
+    computed: {
+        filterData() {
+            const vm = this;
+            if (vm.searchText) {
+                return vm.products.filter((item) => {
+                const data = item.title.toLowerCase().includes(vm.searchText.toLowerCase());
+                return data;
+                });
+            }
+            return this.products;
+        },
+        categories(){
+            return this.$store.state.categories;
+        },
+        products(){
+            return this.$store.state.products;
         }
     },
     created() {

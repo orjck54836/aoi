@@ -9,7 +9,9 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 import VeeValidate from 'vee-validate'
 import zhTWValidate from 'vee-validate/dist/locale/zh_TW';
 import AOS from 'aos'
+import Vuex from 'vuex'
 import 'aos/dist/aos.css'
+import store from '../src/store/indeX'
 
 import currencyFilter from './filters/currency'
 //下方載入中文語系
@@ -21,6 +23,7 @@ Vue.use(VeeValidate)
 import App from './App'
 Vue.config.productionTip = false
 Vue.component('Loading',Loading)
+Vue.use(Vuex)
 Vue.filter('currency',currencyFilter)
 axios.defaults.withCredentials = true
 
@@ -33,6 +36,7 @@ new Vue({
   components: { App },
   template: '<App/>',
   router,
+  store,
 })
 
 router.beforeEach((to, from, next) => {
