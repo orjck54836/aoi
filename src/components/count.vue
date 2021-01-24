@@ -9,7 +9,7 @@
                     <th>數量</th>
                     <th>定價</th>
                 </thead>
-                <tbody >
+                <tbody>
                     <tr  v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
                     <td class="align-middle">
                         <button type="button" class="btn btn-outline-danger btn-sm" 
@@ -23,7 +23,7 @@
                         已套用優惠券
                         </div>
                     </td>
-                    <td class="align-middle"><i class="far fa-plus-square" @click="plus(item.id,item.qty)"></i>{{ item.qty }}/{{ item.product.unit }}<i class="far fa-minus-square" @click="minus(item.id,item.qty)"></i></td>
+                    <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
                     <td class="align-middle">{{ item.final_total }}</td>
                     </tr>
                 </tbody>
@@ -175,24 +175,6 @@ export default {
                 }
             });
         },
-        plus(id,qty){
-            const vm = this;
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-            const cart = {
-                product_id:id,
-                qty,
-            };
-            this.$http.post(api,{data:cart}).then((response) => {
-            console.log(response)  
-            vm.getCart();               
-            });
-        },
-        minus(id,qty){
-            const vm = this;
-            console.log(vm.cart.carts)
-            qty--;
-        }
-
     },
     computed: {
         categories(){
