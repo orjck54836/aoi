@@ -129,11 +129,9 @@ export default {
         getCart(){
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
             const vm = this;
-            vm.isLoading = true;
             this.$http.get(api).then((response) => {
             vm.cart = response.data.data;
-            console.log('hh',response.data.data)
-            vm.isLoading = false
+            console.log('ff',vm.cart.carts)
             });
         },
         couponCreat(){
@@ -184,7 +182,6 @@ export default {
                 product_id:id,
                 qty,
             };
-            vm.isLoading = true
             this.$http.post(api,{data:cart}).then((response) => {
             console.log(response)  
             vm.getCart();               

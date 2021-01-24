@@ -10,7 +10,7 @@
             <button @click.prevent="deCount">-</button>
             <input type="text" v-model="qty" readonly>
             <button @click.prevent="plCount">+</button>
-            <button class="bg-primary mb-4" @click.prevent="addtoCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
+            <button class="bg-primary mb-4" @click.prevent="addCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
             <div class="text-success mb-3" v-if="moji">{{moji}}</div>
         </div>
     </div>
@@ -23,10 +23,17 @@ export default {
             moji:'',
             product:{},
             cart:{},
-            qty:1,         
+            qty:1,       
         };
     },
     methods:{
+        getCart(){
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+            const vm = this;
+            this.$http.get(api).then((response) => {
+            vm.cart = response.data.data;
+            });
+        },
         getProduct(id){
             const vm = this;
             id = this.$route.params.id;
@@ -36,32 +43,33 @@ export default {
             console.log('hhh',vm.product)
             });
         },
-        addtoCart(id,qty){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-            const vm = this;
-            const cart = {
-                product_id:id,
-                qty,
-            };
-            this.$http.post(api,{data:cart}).then((response) => {
-            console.log(response)
-            localStorage.setItem('cart',response)
-            console.log('kkk',localStorage.getItem('cart',response))
-            if(response.status == 200){
-                vm.moji = 'カートに入れました！'
-            }                        
-            });
+        addCart(id, qty) {
+            const target = this.cart.carts.filter(items => items.product_id === id);
+            if (target.length > 0) {
+                const sameCartItem = target[0];
+                const originQty = sameCartItem.qty;
+                console.log('cc',originQty)
+                const originCartId = sameCartItem.id;
+                const originProductId = sameCartItem.product.id;
+                const newQty = originQty + qty;
+                this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
+                this.moji = 'カートに入れました！'
+            } else {
+                this.$store.dispatch('addCart', { id, qty });
+                this.moji = 'カートに入れました！'
+            }
         },
-        plCount(){
+      
+        plCount(qty){
             const vm = this;
             vm.qty++;
             if(vm.qty>10){
                 vm.qty = 10;
             }
         },
-        deCount(){
+        deCount(qty){
             const vm = this;
-            vm.qty--;
+            vm.product.qty--;
             if(vm.qty<1){
                 vm.qty = 1;
             }
@@ -69,6 +77,7 @@ export default {
     },
     created(){
     this.getProduct();
+    this.getCart()
     },
 }
 </script>
