@@ -10,7 +10,7 @@
                 <i class="row col-md-2 align-items-center fas fa-shopping-cart fa-2x" @click="goShop" v-model="check" style="cursor: pointer;"></i>
                 <i class="row col-md-2 fas fa-user fa-2x align-items-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
                 <i class="row col-md-2 align-items-center fas fa-sign-out-alt  fa-2x"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
-                <router-link to="/admin/count" class="row col-md-3 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{Length}}</span></i></router-link>
+                <router-link to="/admin/count" class="row col-md-3 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
             </nav>
         </header>
         <main id="main" >
@@ -99,9 +99,7 @@ export default {
       data() {
         return {
             check:false,
-            cart: {},
             le:'',
-            Length:'',
             user:{
                 username:'',
                 password:''
@@ -155,14 +153,7 @@ export default {
         // }
     },
     getCart(){
-    const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-    const vm = this;
-    this.$http.get(api).then((response) => {
-    console.log(response.data);
-    vm.cart = response.data.data;
-    let le = vm.cart.carts.length;
-    vm.Length = le.toString();
-    });
+    this.$store.dispatch('getCart');
     },
   },
   created(){
@@ -177,6 +168,9 @@ export default {
   computed:{
     isLoading(){
       return this.$store.state.isLoading
+    },
+    cart(){
+      return this.$store.state.cart
     }
   },
 }
