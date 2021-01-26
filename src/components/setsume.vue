@@ -21,9 +21,10 @@
             <h4 @click.prevent="searchText = ''"
               :class="{ 'active': searchText === ''}">
               全部顯示</h4>
-            <h4 v-for="item in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}">
-                <i class="fa fa-street-view" aria-hidden="true"></i>
-                {{ item }}
+            <h4 v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}">
+                <span :class="beans[a]">
+                    {{ item }}
+                </span>
             </h4>
         </div>
         <div class="row col-md-9 justify-content-start" >
@@ -53,6 +54,41 @@
         </div>
     </div>
 </template>
+<style scoped>
+    .asai{
+        background-image: url("./images/asai.gif");
+        background-size: 40px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width:10vw;
+        height:3vw
+    }
+    .naka{
+        background-image: url("./images/naka.gif");
+        background-size: 40px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width:10vw;
+        height:3vw
+    }
+    .deep{
+        background-image: url("./images/deep.gif");
+        background-size: 40px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width:10vw;
+        height:3vw
+    }
+    .kigu{
+        background-image: url("./images/kigu.gif");
+        background-size: 50px;
+        background-position: -5% 150%;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width:10vw;
+        height:3vw
+    }
+</style>
 <script>
 export default {
         data(){
@@ -73,6 +109,12 @@ export default {
                 address:'',
             }
         },
+        beans:[
+            "deep",
+            "asai",
+            "naka",
+            "kigu",
+        ]
         };
     },
     methods:{
@@ -108,7 +150,7 @@ export default {
             const vm = this;
             if (vm.searchText) {
                 return vm.products.filter((item) => {
-                const data = item.category.toLowerCase().includes(vm.searchText.toLowerCase());
+                const data = item.title.toLowerCase().includes(vm.searchText.toLowerCase());
                 return data;
                 });
             }

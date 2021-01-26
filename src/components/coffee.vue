@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <div class="row text-center">
+            <div class="row text-center justify-content-center">
                 <p class="text-success space">ABOUT KOHIKAN</p>
                 <h2 class="">一杯のコーヒーに心をこめて</h2>
                 <h6 class="col-md-12 mt-md-5" data-aos="zoom-in" data-aos-duration="2000">
@@ -13,7 +13,7 @@
                     すぐそばにある「珈琲館」とゆったりとした「ロードサイド珈琲館」。<br>
                     本物の美味しさをお楽しみください。<br>
                 </h6>
-                <img src="./images/beans.jpg" class="w-60 space" data-aos="zoom-in" data-aos-duration="3000" style="margin-bottom:10vw ">
+                <img src="./images/beans.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000" style="margin-bottom:10vw ">
                 <div class="col-md-6 space">
                     <h3>格別な味と香り、独特のコクが<br>
                     自慢のオリジナルコーヒーです</h3>
@@ -34,7 +34,7 @@
                     煎り上げてつくられた、
                     本格派コーヒーの香りとコクをお楽しみください。</h6>
                 </div>
-                 <img src="./images/express.jpg" class="w-60 space" data-aos="zoom-in" data-aos-duration="3000">
+                 <img src="./images/express.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000">
             </div>      
         </div><br><br>
     </div>

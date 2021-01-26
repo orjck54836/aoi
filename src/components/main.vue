@@ -1,5 +1,5 @@
 <template>
-    <div id="ty" style="z-index:0" class="container">
+    <div id="ty" style="z-index:0;padding:0" class="container-fluid">
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -7,7 +7,7 @@
         </ol>
         <div class="carousel-inner ">
             <div class="carousel-item active justify-content-around align-items-center">
-                <img src="./images/banner1.jpg" class="col-md-12 ">
+                <img src="./images/banner1.jpg" class="col-md-12" style="padding:0">
                 <div class="carousel-caption d-none d-md-block" >
                     <h3 style="position:relative;top:-30vw; left:30vw;" >格別な味と香り、独特のコクが<br>
                     自慢のオリジナルコーヒーです</h3>
@@ -22,7 +22,7 @@
                 </div>
             </div>
                 <div class="carousel-item ">
-                    <img src="./images/banner2.jpg" class="col-md-12 " alt="...">
+                    <img src="./images/banner2.jpg" class="col-md-12 " style="padding:0">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -31,11 +31,10 @@
             </div>
         </div>
         <h2 class="slogan" data-aos="zoom-in">-コーヒーは飲むことができる一種の魔法である-</h2>
-        <div class="row mt-md-4">
-            <router-link to="/admin/main"><img src="./images/BLO-BIG.jpg" class="col-md-4 col-sm-4 image1"style="padding:0px" data-aos="fade-left"  data-aos-duration="3000"></router-link>
-            <router-link to="/admin/main"><img src="./images/med-big.jpg" class="col-md-4 col-sm-4 image2" style="padding:0px" data-aos="fade-down"  data-aos-duration="3000"></router-link>
-            <router-link to="/admin/main"><img src="./images/dark-big.jpg" class="col-md-4 col-sm-4 image3" style="padding:0px" data-aos="fade-right"  data-aos-duration="3000"></router-link>
-            
+        <div class="row col-md-12 justify-content-center" style="margin:10vw auto 5vw">
+            <router-link to="/admin/main"><img src="./images/BLO-BIG.jpg" class="col-md-3 col-sm-3 mr-4 image1"style="padding:0px" data-aos="fade-left"  data-aos-duration="3000"></router-link>
+            <router-link to="/admin/main"><img src="./images/med-big.jpg" class="col-md-3 col-sm-3 image2" style="padding:0px" data-aos="fade-down"  data-aos-duration="3000"></router-link>
+            <router-link to="/admin/main"><img src="./images/dark-big.jpg" class="col-md-3 col-sm-3 ml-4 image3" style="padding:0px" data-aos="fade-right"  data-aos-duration="3000"></router-link>
         </div>   
         </div>
     </div>
@@ -47,7 +46,7 @@
     z-index:0;
 }
 #ty{
-
+    
     height:100%;
 }
 .slogan{

@@ -54,7 +54,7 @@ export default new Vuex.Store({
             context.commit('LOADING',status)
         },
         getProducts(context){
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
             context.commit('LOADING',true)
             axios.get(api).then((response) => {
             context.commit('PRODUCTS',response.data.products)

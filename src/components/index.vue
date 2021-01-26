@@ -5,12 +5,12 @@
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2 col-sm-2 justify-content-center"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end" >   
                 <router-link to="/admin/coffee" class="row col-md-3 mr-2 align-items-center ho">ザ.コーヒーとは</router-link>
-                <router-link to="/admin/baking" class="row col-md-3 align-items-center ho">焙煎</router-link>
+                <router-link to="/admin/baking" class="row col-md-2 align-items-center ho">焙煎</router-link>
                 <!-- 按鈕區 -->
-                <i class="row col-md-2 align-items-center fas fa-shopping-cart fa-2x" @click="goShop" v-model="check" style="cursor: pointer;"></i>
-                <i class="row col-md-2 fas fa-user fa-2x align-items-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
-                <i class="row col-md-2 align-items-center fas fa-sign-out-alt  fa-2x"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
-                <router-link to="/admin/count" class="row col-md-3 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+                <div class="row col-md-3 align-items-center shop" @click="goShop" v-model="check" style="cursor: pointer;" >商品情報</div>
+                <i class="row col-md-1 fas fa-user fa-2x align-items-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
+                <i class="row col-md-1 align-items-center fas fa-sign-out-alt  fa-2x"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
+                <router-link to="/admin/count" class="row col-md-3 ml-2 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
             </nav>
         </header>
         <main id="main" >
@@ -26,17 +26,14 @@
                     <div class="modal-body">
                         <div class="form-signin" >
                             <form @submit.prevent="signIn" >
+                                <h6>メールアドレス</h6>
                                 <label for="inputEmail" class="visually-hidden">Email address</label>
                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" v-model="user.username" required autofocus>
-                                <label for="inputPassword" class="visually-hidden">Password</label>
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="user.password" required>
+                                <h6 class="mt-4">パスワード</h6>
+                                <label for="inputPassword" class="visually-hidden ">Password</label>
+                                <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" v-model="user.password" required>
                                 <p v-if="check" class="text-success">登入成功！</p>
-                                <div class="checkbox mb-3">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                                </div>
-                                <button class="w-100 btn btn-lg btn-success" type="submit">確認</button>
+                                <button class="w-100 btn btn-lg btn-dark" type="submit">確認</button>
                             </form>
                         </div>
                     </div>
@@ -118,16 +115,14 @@ export default {
         const expired = response.data.expired;
         console.log(token,expired);
         document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
-        if(response.data.success == true){
-          $('#exampleModal').modal('hide');
-          vm.check = true
-          vm.$store.state.isLoading = false;
-        }else{
-          alert('請輸入正確帳號密碼')
-        }
-        
-        })
-        
+          if(response.data.success == true){
+            $('#exampleModal').modal('hide');
+            vm.check = true
+            vm.$store.state.isLoading = false;
+          }else{
+            alert('請輸入正確帳號密碼')
+          }
+        }) 
     },
         signOut(){
         const api =`${process.env.APIPATH}/logout`;
@@ -144,13 +139,6 @@ export default {
     goShop(){
          const vm = this
          vm.$router.push('/admin/customer_order/setsume')
-        // if(vm.check == true){
-        //     vm.$router.push('/admin/customer_order')
-        //     $('#exampleModal').modal('hide')
-        // }else{
-        //     alert('請先登入！')
-        //     $('.modal-backdrop').remove()
-        // }
     },
     getCart(){
     this.$store.dispatch('getCart');
@@ -180,11 +168,18 @@ export default {
 html,body{
     height: 100vh;
 }
+.shop{
+  color:black;
+  -webkit-transition:all .1s ease-in-out;
+  -moz-transition:all .1s ease-in-out;
+  -o-transition:all .1s ease-in-out;
+  -ms-transition:all .1s ease-in-out; 
+}
 .ho{
   color:black;
 }
 .ho:hover{
-  color:red;
+  color:#844200;
   font-size:16px;
   cursor: pointer;
 }
@@ -192,9 +187,7 @@ html,body{
   height:4rem;
   display:flex;
 }
-.site-header a {
-  transition: color .15s ease-in-out;
-}
+
 .site-header button {
     color: white;
     background:#00000085;
