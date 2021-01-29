@@ -84,17 +84,6 @@ export default new Vuex.Store({
               }
             })
         },
-        // getCart(context) {
-        //     context.commit('LOADING', true);
-        //     const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-        //     axios.get(url).then((response) => {
-        //         if (response.data.data.carts) {
-        //         context.commit('CART', response.data.data);
-        //         context.commit('CARTORDER', response.data.data.carts);
-        //         }
-        //         context.commit('LOADING', false);
-        //     });
-        // },
         updateProductQty(context, { originCartId, originProductId, newQty }) {
             context.commit('LOADING', true);
             const delAPI = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${originCartId}`;

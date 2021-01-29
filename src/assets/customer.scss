@@ -1,0 +1,30 @@
+.but{
+    font-size: 1.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    border:0;
+    background-color:#b97318c2;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    border:1px #000000 solid;
+    
+}
+
+.but:hover{
+    color:beige;
+    background-color:#fff#b97318c2;
+    border:2px #000000 solid;
+    opacity:0.6;
+    font-size: 1.7vw;
+}
+.but span{
+    vertical-align: sub;
+}
+@media (max-width: 480px){
+    .cust img{
+        display: none;
+    }
+    .mu{
+        width: 50vw;
+    }
+}

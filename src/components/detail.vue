@@ -4,13 +4,13 @@
             <div style="height:20vw; background-size:contain;background-position: center;background-repeat:no-repeat;" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
         </div>
         <div class="col-md-8">
-            <h3 class="text-center mb-4">{{product.title}}</h3>
-            <h4 class="text-success ">この商品について</h4>
-            <h6 class="col-md-10 mb-4">{{product.description}}</h6>
+            <h3 class="text-left mb-4">{{product.title}}</h3>
+            <h4 class="text-success ">この商品について</h4><hr style="width:90%">
+            <h6 class="col-md-10 mb-4">{{product.description}}</h6><hr style="width:90%">
             <button @click.prevent="deCount">-</button>
             <input type="text" v-model="qty" readonly>
             <button @click.prevent="plCount">+</button>
-            <button class="bg-primary mb-4" @click.prevent="addCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
+            <button class="bg-secondary mb-4 rounded" @click.prevent="addCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
             <div class="text-success mb-3" v-if="moji">{{moji}}</div>
         </div>
     </div>

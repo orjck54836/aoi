@@ -1,16 +1,24 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
-        <header class="site-header sticky-top col-md-12" >
-         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2 col-sm-2 justify-content-center"></router-link>
-            <nav class="container d-flex flex-column flex-md-row justify-content-end" >   
-                <router-link to="/admin/coffee" class="row col-md-3 mr-2 align-items-center ho">ザ.コーヒーとは</router-link>
-                <router-link to="/admin/baking" class="row col-md-2 align-items-center ho">焙煎</router-link>
-                <!-- 按鈕區 -->
-                <div class="row col-md-3 align-items-center shop" @click="goShop" v-model="check" style="cursor: pointer;" >商品情報</div>
-                <i class="row col-md-1 fas fa-user fa-2x align-items-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
-                <i class="row col-md-1 align-items-center fas fa-sign-out-alt  fa-2x"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
-                <router-link to="/admin/count" class="row col-md-3 ml-2 align-items-center" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+        <header class="site-header col-md-12 ">
+         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center"></router-link>
+            <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md " >
+              <input type="checkbox" name="menu-switcher" id="menu-switcher" />
+              <label for="menu-switcher" class="hamburger">
+                <div class="hamburger-line"></div>
+              </label>
+                <!--手機選單-->
+                <ul class="menu">
+                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu">ザ.コーヒーとは</router-link>
+                    <router-link to="/admin/baking" class="row  align-items-center zenbu">焙煎</router-link>
+                    <!-- 按鈕區 -->
+                    <div class="row align-items-center zenbu" @click="goShop" v-model="check" style="cursor: pointer;" >商品情報</div>
+                    <i class="row  fas fa-user fa-2x align-items-center user"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
+                    <i class="row  align-items-center fas fa-sign-out-alt  fa-2x user"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
+                    <router-link to="/admin/count" class="row ml-2 align-items-center shop" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+                </ul>
+                 <!--手機選單-->
             </nav>
         </header>
         <main id="main" >
@@ -44,49 +52,11 @@
                 </div>
             </div>
         </main>
-        <footer class="bg-dark footer"  >
-        <div class="row bg-dark">
-            <div class="col-12 col-md">
-            </div>
-            <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                <li><a class="link-secondary" href="#">Random feature</a></li>
-                <li><a class="link-secondary" href="#">Team feature</a></li>
-                <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-                <li><a class="link-secondary" href="#">Another one</a></li>
-                <li><a class="link-secondary" href="#">Last time</a></li>
-            </ul>
-            </div>
-            <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="link-secondary "href="#">Resource name</a></li>
-                <li><a class="link-secondary" href="#">Resource</a></li>
-                <li><a class="link-secondary" href="#">Another resource</a></li>
-                <li><a class="link-secondary" href="#">Final resource</a></li>
-            </ul>
-            </div>
-            <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Business</a></li>
-                <li><a class="link-secondary" href="#">Education</a></li>
-                <li><a class="link-secondary" href="#">Government</a></li>
-                <li><a class="link-secondary" href="#">Gaming</a></li>
-            </ul>
-            </div>
-            <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="link-secondary" href="#">Team</a></li>
-                <li><a class="link-secondary" href="#">Locations</a></li>
-                <li><a class="link-secondary" href="#">Privacy</a></li>
-                <li><a class="link-secondary" href="#">Terms</a></li>
-            </ul>
-            </div>
-        </div>
+        <footer class="bg-dark footer text-center ">
+          <div class="row bg-dark text-light awer">
+             Copyright© Design by LEE CHIA-HAO<br>
+             僅為個人作品使用，無任何商業用途
+          </div>
         </footer>
     </div>
 </template>
@@ -168,17 +138,8 @@ export default {
 html,body{
     height: 100vh;
 }
-.shop{
-  color:black;
-  -webkit-transition:all .1s ease-in-out;
-  -moz-transition:all .1s ease-in-out;
-  -o-transition:all .1s ease-in-out;
-  -ms-transition:all .1s ease-in-out; 
-}
-.ho{
-  color:black;
-}
-.ho:hover{
+
+.zenbu:hover{
   color:#844200;
   font-size:16px;
   cursor: pointer;
@@ -186,8 +147,8 @@ html,body{
 .site-header {
   height:4rem;
   display:flex;
+  position: relative;
 }
-
 .site-header button {
     color: white;
     background:#00000085;
@@ -224,7 +185,7 @@ html,body{
   border-radius: 5px;
 }
 .carousel-inner img{
-    height:45vw;
+  height:45vw;
 }
 .product-device-2 {
   top: -25%;
@@ -240,19 +201,14 @@ html,body{
   min-height:calc(100vh - 8rem)
 }
 .footer{
-    height:4rem
+    height:4rem;
+    
+}
+.awer{
+    display:block;
+    margin:auto;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    flex: 1;
-  }
-}
 
 </style>
 

@@ -21,7 +21,7 @@ export default new VueRouter({
     routes:[
             {
                 path:'*',
-                redirect:'/loging'
+                redirect:'/admin'
             },
             {
                 path:'/admin',//元件呈現的名稱

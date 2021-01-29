@@ -2,7 +2,7 @@
     <div class="row col-md-12">
         <!-- Search bar -->
         <div>
-            <form class="form-inline">
+            <form class="form-inline col-md-3 ml-4">
               <div class="input-group">
                 <input class="form-control" type="text" v-model="searchText"
                   placeholder="タイトルで探す" aria-label="Search">
@@ -18,16 +18,16 @@
         <!-- Search bar end-->
         <div class="col-md-3  text-center justify-content-start" style="position: sticky;top: 40px;" >
             <h2 class="mt-4 mb-4">種類で探す</h2>
-            <h4 @click.prevent="searchText = ''"
-              :class="{ 'active': searchText === ''}">
-              全部顯示</h4>
-            <h4 v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}">
+            <button @click.prevent="searchText = ''"
+              :class="{ 'active': searchText === ''}" class="btn btn-outline-secondary btn-lg mb-4">
+              全部現す</button><br>
+            <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but mb-2">
                 <span :class="beans[a]">
                     {{ item }}
                 </span>
-            </h4>
+            </button>
         </div>
-        <div class="row col-md-9 justify-content-start" >
+        <div class="row col-md-9 justify-content-start mu" >
             <div class="col-md-4 mb-md-4 " v-for="(item) in filterData" :key="item.id" >
                 <div class="card border-0 shadow-sm">
                     <div style="height: 20vw; background-size: cover; background-position: center" 
@@ -57,7 +57,7 @@
 <style scoped>
     .asai{
         background-image: url("./images/asai.gif");
-        background-size: 40px;
+        background-size: 35px;
         background-repeat: no-repeat;
         display: inline-block;
         width:10vw;
@@ -65,7 +65,7 @@
     }
     .naka{
         background-image: url("./images/naka.gif");
-        background-size: 40px;
+        background-size: 35px;
         background-repeat: no-repeat;
         display: inline-block;
         width:10vw;
@@ -73,7 +73,7 @@
     }
     .deep{
         background-image: url("./images/deep.gif");
-        background-size: 40px;
+        background-size: 35px;
         background-repeat: no-repeat;
         display: inline-block;
         width:10vw;
@@ -81,8 +81,7 @@
     }
     .kigu{
         background-image: url("./images/kigu.gif");
-        background-size: 50px;
-        background-position: -5% 150%;
+        background-size: 35px;
         background-repeat: no-repeat;
         display: inline-block;
         width:10vw;
@@ -150,7 +149,7 @@ export default {
             const vm = this;
             if (vm.searchText) {
                 return vm.products.filter((item) => {
-                const data = item.title.toLowerCase().includes(vm.searchText.toLowerCase());
+                const data = item.category.toLowerCase().includes(vm.searchText.toLowerCase());
                 return data;
                 });
             }

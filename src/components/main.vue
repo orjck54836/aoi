@@ -32,9 +32,9 @@
         </div>
         <h2 class="slogan" data-aos="zoom-in">-コーヒーは飲むことができる一種の魔法である-</h2>
         <div class="row col-md-12 justify-content-center" style="margin:10vw auto 5vw">
-            <router-link to="/admin/main"><img src="./images/BLO-BIG.jpg" class="col-md-3 col-sm-3 mr-4 image1"style="padding:0px" data-aos="fade-left"  data-aos-duration="3000"></router-link>
-            <router-link to="/admin/main"><img src="./images/med-big.jpg" class="col-md-3 col-sm-3 image2" style="padding:0px" data-aos="fade-down"  data-aos-duration="3000"></router-link>
-            <router-link to="/admin/main"><img src="./images/dark-big.jpg" class="col-md-3 col-sm-3 ml-4 image3" style="padding:0px" data-aos="fade-right"  data-aos-duration="3000"></router-link>
+            <router-link to="/admin/main" class="ph"><img src="./images/BLO-BIG.jpg" class="col-md-3 col-sm-3 mr-4 image1"style="padding:0px" data-aos="fade-left"  data-aos-duration="3000"></router-link>
+            <router-link to="/admin/main" class="ph"><img src="./images/med-big.jpg" class="col-md-3 col-sm-3 image2" style="padding:0px" data-aos="fade-down"  data-aos-duration="3000"></router-link>
+            <router-link to="/admin/main" class="ph"><img src="./images/dark-big.jpg" class="col-md-3 col-sm-3 ml-4 image3" style="padding:0px" data-aos="fade-right"  data-aos-duration="3000"></router-link>
         </div>   
         </div>
     </div>
@@ -49,13 +49,7 @@
     
     height:100%;
 }
-.slogan{
-    position:absolute;
-    margin:5vw 25vw;
-    z-index:1;
-    text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
-    color: white;
-}
+
 .image1:hover  {
   opacity: 0.7;
 
