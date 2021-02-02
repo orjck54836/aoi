@@ -1,5 +1,5 @@
 <template>
-    <div id="ty" style="z-index:0;padding:0" class="container-fluid">
+    <div id="ty" style="z-index:0;padding:0" class="container-fluid main">
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -7,7 +7,7 @@
         </ol>
         <div class="carousel-inner ">
             <div class="carousel-item active justify-content-around align-items-center">
-                <img src="./images/banner1.jpg" class="col-md-12" style="padding:0">
+                <img src="./images/banner1.jpg" class="col-md-12" style="padding:0;">
                 <div class="carousel-caption d-none d-md-block" >
                     <h3 style="position:relative;top:-30vw; left:30vw;" >格別な味と香り、独特のコクが<br>
                     自慢のオリジナルコーヒーです</h3>
@@ -46,7 +46,6 @@
     z-index:0;
 }
 #ty{
-    
     height:100%;
 }
 
@@ -60,4 +59,5 @@
 .image3:hover{
   opacity: 0.7;
 }
+
 </style>

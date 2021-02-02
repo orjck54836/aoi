@@ -1,11 +1,7 @@
 <template>
   <div class="container-fluid cust">
     <loading :active.sync="isLoading"></loading>
-    <img src="./images/cart.jpg" class="col-md-12" style="height:20vw">
-    <div class="row col-md-12 mt-md-4" >
-        
-        <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>

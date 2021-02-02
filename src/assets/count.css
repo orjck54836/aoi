@@ -1,0 +1,33 @@
+.table {
+  -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
+  border: 2px black solid;
+}
+
+.table thead {
+  background-color: chocolate;
+}
+
+.table tbody {
+  background-color: #dbdad9;
+}
+
+.table tfoot {
+  background-color: #413e3c;
+  color: white;
+  border: none;
+}
+
+.table1 {
+  border-top: 1px black solid;
+  font-size: 17px;
+}
+
+.table1 tbody {
+  border-top: 1px black solid;
+}
+
+.table1 tfoot {
+  color: black;
+  border-top: 1px black solid;
+}
+/*# sourceMappingURL=count.css.map */

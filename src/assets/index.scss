@@ -1,3 +1,9 @@
+.logo{
+    filter:invert(100%)
+}
+.logo:hover{
+    filter:invert(50%)
+}
 
 .slogan{
     position:absolute;
@@ -5,6 +11,49 @@
     z-index:1;
     text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
     color: white;
+}
+.user{
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 0px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+.user:hover{
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 2px 10px;
+    color:#844200;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.shop{
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 0px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.shop:hover{
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 2px 10px;
+    color:#844200;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
 }
 #menu-switcher {
     display: none;
@@ -18,10 +67,17 @@
     background-color: transparent;
 }
 .zenbu{
-    color: black;
-    font-size: 10px;
+    color: rgb(255, 255, 255);
+    font-size:15px;
     text-align: center;
-    padding-right: 2vw;
+    padding: 15px;
+    
+}
+.zenbu:hover{
+    color:#844200;
+    font-size:16px;
+    cursor: pointer;
+    text-decoration:none
 }
 @media (max-width: 480px){
     .site-header img{
@@ -39,16 +95,16 @@
         text-align: center;
     }
     .hamburger {
-        background-color: #000000;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         position: absolute;
         top: 10px;
         right: 10px;
         display: block;
+        cursor: pointer;
     }
     .hamburger-line {
-        width: 40px;
+        width: 30px;
         height: 3px;
         background-color: #ffffff;
         margin: auto;
@@ -57,7 +113,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: 0px 10px 0px #ffffff, 0px -10px 0px #ffffff;
+        box-shadow: 0px 8px 0px #ffffff, 0px -8px 0px #ffffff;
     }
     .menu {
         display: block;
@@ -71,18 +127,60 @@
         transform: translateX(-100%);
         transition: 0.5s; /* new */
         padding: 0;
+        opacity: 0.9;
     }
     #menu-switcher:checked ~ .menu {
         transform: translateX(0%);
     }
-    .ho{
-        display: none;
-    }
     .user{
-        display: none;
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .user:hover{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color:#844200;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 30px;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
     }
     .shop{
-        display: none;
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .shop:hover{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color:#844200;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 30px;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
     }
     .zenbu{
         display: inline-flex;
@@ -93,7 +191,15 @@
         text-transform: uppercase;
         font-size: 10px;
         text-align: center;
-        border-bottom: 3px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
         width: 70vw;
+        cursor: pointer;
+    }
+    .zenbu:hover{
+        color:#844200;
+        font-size:16px;
+        cursor: pointer;
+        text-decoration:none
     }
 }
+

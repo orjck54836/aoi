@@ -1,10 +1,8 @@
 <template>
     <div class="container">
-      <img src="./images/count.jpg" class="col-md-12">
-        <div class="my-5 row justify-content-center">
-            <div class="col-md-12">
-            <button @click="removeAll">del</button>
-                <table class="table">                
+        <div class="row">
+        <div class="col-md-6 mt-4"> 
+                <table class="table1 table">
                 <thead>
                     <th></th>
                     <th>商品</th>
@@ -12,13 +10,8 @@
                     <th>定價</th>
                 </thead>
                 <tbody>
-                    <tr  v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
-                    <td class="align-middle">
-                        <button type="button" class="btn btn-outline-danger btn-sm" 
-                        @click="removeCart(item.id)">
-                        <i class="far fa-trash-alt" ></i>
-                        </button>
-                    </td>
+                    <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
+                    <td class="align-middle"></td>
                     <td class="align-middle">
                     {{ item.product.title }}
                         <div class="text-success" v-if="ty">
@@ -41,23 +34,54 @@
                 </tfoot>
                 </table>
                 <div class="input-group mb-3 input-group-sm">
-                <input type="text" class="form-control" v-model="coupon_code">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="couponCreat">
-                    套用優惠碼
-                    </button>
+                    <input type="text" class="form-control" v-model="coupon_code">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" @click="couponCreat">
+                        套用優惠碼
+                        </button>
+                    </div>
+                    </div>
                 </div>
+                <form  class="col-md-6" @submit.prevent="createOrder">
+                <div class="form-group">
+                <label for="useremail">Email</label>
+                <input type="email" class="form-control" name="email" id="useremail"
+                    v-model="form.user.email" placeholder="請輸入 Email" v-validate="'required|email'" :class="{'is-invalid':errors.has('email')}">
+                <span class="text-danger" v-if="errors.has('email')">{{errors.first('email')}}</span>
                 </div>
-                <router-link to="/admin/email"><button>確定選購</button></router-link>
-            </div>
-      </div>  
+            
+                <div class="form-group">
+                <label for="username">收件人姓名</label>
+                <input type="text" class="form-control" name="name" id="username"
+                    v-model="form.user.name" placeholder="輸入姓名" v-validate="'required'" :class="{'is-invalid':errors.has('name')}">
+                <span class="text-danger" v-if="errors.has('name')">姓名必須輸入</span>
+                </div>
+            
+                <div class="form-group">
+                <label for="usertel">收件人電話</label>
+                <input type="tel" class="form-control" id="usertel" v-model="form.user.tel" placeholder="請輸入電話">
+                </div>
+            
+                <div class="form-group">
+                <label for="useraddress">收件人地址</label>
+                <input type="text" class="form-control" name="address" id="useraddress" v-model="form.user.address"
+                    placeholder="請輸入地址">
+                <span class="text-danger">地址欄位不得留空</span>
+                </div>
+            
+                <div class="form-group">
+                <label for="comment">留言</label>
+                <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
+                </div>
+                <div class="text-right">
+                <button class="btn btn-danger">送出訂單</button>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
-
 <script>
 import $ from 'jquery'
-
-
 export default {
     data(){
         return{
@@ -114,26 +138,6 @@ export default {
             vm.isLoading = false
             });
         },
-        removeCart(id){
-            const vm = this;
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${id}`;
-            vm.isLoading = true
-            this.$http.delete(api).then((response) => {  
-            console.log(response.message)        
-            vm.isLoading = false;
-            vm.getCart();
-            });
-        },
-        removeAll(){
-            const vm = this;
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-            vm.isLoading = true
-            this.$http.delete(api).then((response) => {  
-            console.log(response.message)        
-            vm.isLoading = false;
-            vm.getCart();
-            });
-        },
         createOrder() {
             const vm = this;
             const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
@@ -169,5 +173,5 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<>
+</>

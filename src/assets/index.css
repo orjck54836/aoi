@@ -1,0 +1,242 @@
+.logo {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.logo:hover {
+  -webkit-filter: invert(50%);
+          filter: invert(50%);
+}
+
+.slogan {
+  position: absolute;
+  margin: 5vw 25vw;
+  z-index: 1;
+  text-shadow: 2px 3px 1px black, 0px 0px 2px black;
+  color: white;
+}
+
+.user {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+  margin: 0px 0px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.user:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+  margin: 0px 2px 10px;
+  color: #844200;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.shop {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+  margin: 0px 0px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.shop:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+  margin: 0px 2px 10px;
+  color: #844200;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#menu-switcher {
+  display: none;
+}
+
+.menu {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: transparent;
+}
+
+.zenbu {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+}
+
+.zenbu:hover {
+  color: #844200;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .site-header img {
+    width: 25vw;
+  }
+  .ph img {
+    max-width: 22vw;
+  }
+  .slogan {
+    position: absolute;
+    margin: -50vw 2vw;
+    z-index: 1;
+    text-shadow: 2px 3px 1px black, 0px 0px 2px black;
+    color: white;
+    text-align: center;
+  }
+  .hamburger {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-box-shadow: 0px 8px 0px #ffffff, 0px -8px 0px #ffffff;
+            box-shadow: 0px 8px 0px #ffffff, 0px -8px 0px #ffffff;
+  }
+  .menu {
+    display: block;
+    background-color: #000000;
+    height: 100vh;
+    width: 85vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    /* new */
+    padding: 0;
+    opacity: 0.9;
+  }
+  #menu-switcher:checked ~ .menu {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .user {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 20px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    width: 70vw;
+    cursor: pointer;
+  }
+  .user:hover {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 20px 10px;
+    color: #844200;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    width: 70vw;
+    cursor: pointer;
+  }
+  .shop {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 20px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-bottom: 2px solid #ffffff;
+    width: 70vw;
+    cursor: pointer;
+  }
+  .shop:hover {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 20px 10px;
+    color: #844200;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    border-bottom: 2px solid #ffffff;
+    width: 70vw;
+    cursor: pointer;
+  }
+  .zenbu {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 15px;
+    margin: 0px 20px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    width: 70vw;
+    cursor: pointer;
+  }
+  .zenbu:hover {
+    color: #844200;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+/*# sourceMappingURL=index.css.map */

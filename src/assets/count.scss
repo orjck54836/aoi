@@ -1,0 +1,37 @@
+.table{
+   -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
+   border: 2px black solid;
+}
+.table thead{
+    background-color: chocolate;
+}
+
+.table tbody{
+    background-color: rgb(219, 218, 217);
+
+}
+
+.table tfoot{
+    background-color: rgb(65, 62, 60);
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+.table1{
+    border-top: 1px black solid;
+    font-size: 17px;
+ }
+ .table1 thead{
+    
+ }
+ 
+ .table1 tbody{
+    border-top: 1px black solid;
+
+ }
+ 
+ .table1 tfoot{
+     color: rgb(0, 0, 0);
+     border-top: 1px black solid;
+ }
+

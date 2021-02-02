@@ -1,5 +1,5 @@
 <template>
-    <div class="row col-md-12">
+    <div class="row col-md-12 mt-4">
         <div class="col-md-4">            
             <div style="height:20vw; background-size:contain;background-position: center;background-repeat:no-repeat;" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
         </div>

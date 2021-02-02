@@ -6,10 +6,8 @@
     color:#fff;
     border-radius:10px;
     cursor:pointer;
-    border:1px #000000 solid;
-    
+    border:1px #000000 solid;   
 }
-
 .but:hover{
     color:beige;
     background-color:#fff#b97318c2;
@@ -20,11 +18,48 @@
 .but span{
     vertical-align: sub;
 }
+
 @media (max-width: 480px){
     .cust img{
         display: none;
     }
-    .mu{
-        width: 50vw;
+    .but span{
+        vertical-align: baseline;
+
     }
+    .mu{
+        width: 40vw;
+        margin-top: 5vw;
+    }
+    .chose{
+        display: contents;
+    }
+    .search{
+        display: none;
+    }
+    .bot button{
+        font-size: 3vw;
+        font-family: 'Times New Roman', Times, serif;
+        width: 70vw;
+        border-radius:0px;
+        cursor:pointer;
+        height: 3rem;
+        border:0;
+        border-top:1px #928585 solid;
+        background-color:#ffffffc2;
+        color:rgb(0, 0, 0);
+    }
+    .bot button:hover{
+        font-size: 4vw;
+        font-family: 'Times New Roman', Times, serif;
+        width: 70vw;
+        border-radius:0px;
+        cursor:pointer;
+        height: 3rem;
+        border:0;
+        border-bottom:1px #4e4343 solid;
+        background-color:#867676c2;
+        color:rgb(175, 126, 21);
+    }
+    
 }

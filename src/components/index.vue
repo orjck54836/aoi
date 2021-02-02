@@ -1,9 +1,9 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
-        <header class="site-header col-md-12 ">
-         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center"></router-link>
-            <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md " >
+        <header class="site-header col-md-12 position-fixed" :style="style">
+         <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo"></router-link>
+            <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md">
               <input type="checkbox" name="menu-switcher" id="menu-switcher" />
               <label for="menu-switcher" class="hamburger">
                 <div class="hamburger-line"></div>
@@ -11,17 +11,17 @@
                 <!--手機選單-->
                 <ul class="menu">
                     <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row  align-items-center zenbu">焙煎</router-link>
+                    <router-link to="/admin/baking" class="row  align-items-center zenbu mr-2 ">焙煎</router-link>
                     <!-- 按鈕區 -->
-                    <div class="row align-items-center zenbu" @click="goShop" v-model="check" style="cursor: pointer;" >商品情報</div>
-                    <i class="row  fas fa-user fa-2x align-items-center user"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check" style="cursor: pointer;"></i>
-                    <i class="row  align-items-center fas fa-sign-out-alt  fa-2x user"  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut" style="cursor: pointer;"></i>
-                    <router-link to="/admin/count" class="row ml-2 align-items-center shop" style="cursor: pointer;"><i class="fas fa-shopping-basket " style="font-size:25px;color:black"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+                    <div class="row align-items-center zenbu mr-2 " @click="goShop" v-model="check">商品情報</div>
+                    <i class="row  fas fa-user fa-2x align-items-center user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
+                    <i class="row  align-items-center fas fa-sign-out-alt fa-2x user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut"></i>
+                    <router-link to="/admin/count" class="row align-items-center shop mr-2 "><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
                 </ul>
                  <!--手機選單-->
             </nav>
         </header>
-        <main id="main" >
+        <main>
             <router-view></router-view>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -63,7 +63,7 @@
 <script>
 import  $ from "jquery";
 export default {
-      data() {
+  data() {
         return {
             check:false,
             le:'',
@@ -71,9 +71,27 @@ export default {
                 username:'',
                 password:''
             },
+            style: {},
+			    	opacity: 0,
         };
   },
+  beforeRouteEnter(to, from, next) {
+    window.document.body.style.background='#fefbf4'
+    next()
+  },
+  beforeRouteLeave(to, from, next) {
+    window.document.body.style.backgroundColor=''
+    next()
+  },
+  mounted() {
+			window.addEventListener("scroll", this.windowScroll); //监听页面滚动
+  },
   methods:{
+        windowScroll() {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+          this.opacity = Math.abs(Math.round(scrollTop)) / 250;
+          this.style = {background: `rgba(0, 0, 0,${this.opacity})`}
+			  },
         signIn(){
         const api = `${process.env.APIPATH}/admin/signin`
         // const api = 'https://vue-course-api.hexschool.io/api/orjck54836/products';
@@ -114,6 +132,9 @@ export default {
     this.$store.dispatch('getCart');
     },
   },
+  destroyed() {
+			window.removeEventListener("scroll", this.windowScroll); //销毁滚动事件
+  },
   created(){
       this.getCart();
       //網址來源https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
@@ -136,18 +157,14 @@ export default {
 
 <style scoped>
 html,body{
-    height: 100vh;
+    height: 100vh; 
 }
 
-.zenbu:hover{
-  color:#844200;
-  font-size:16px;
-  cursor: pointer;
-}
 .site-header {
   height:4rem;
   display:flex;
   position: relative;
+  z-index:9999;
 }
 .site-header button {
     color: white;
@@ -158,10 +175,6 @@ html,body{
     border-radius: 25px;
     opacity:0.6;
     margin-left:8px;
-}
-.site-header a:hover {
-  color:#844200;
-  text-decoration: none;
 }
 
 .product-device {
@@ -195,11 +208,6 @@ html,body{
   background-color: #e5e5e5;
 }
 
-#main{
-  min-height:100vh;
-  font-family:Serif;
-  min-height:calc(100vh - 8rem)
-}
 .footer{
     height:4rem;
     

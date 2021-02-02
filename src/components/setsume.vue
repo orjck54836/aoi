@@ -1,8 +1,9 @@
+
 <template>
-    <div class="row col-md-12">
+    <div class="row col-md-12" style="margin: auto">
         <!-- Search bar -->
         <div>
-            <form class="form-inline col-md-3 ml-4">
+            <form class="form-inline col-md-3 ml-4 search">
               <div class="input-group">
                 <input class="form-control" type="text" v-model="searchText"
                   placeholder="タイトルで探す" aria-label="Search">
@@ -16,27 +17,27 @@
             </form>
         </div>
         <!-- Search bar end-->
-        <div class="col-md-3  text-center justify-content-start" style="position: sticky;top: 40px;" >
+        <div class="col-md-3  text-center justify-content-start bot">
             <h2 class="mt-4 mb-4">種類で探す</h2>
             <button @click.prevent="searchText = ''"
-              :class="{ 'active': searchText === ''}" class="btn btn-outline-secondary btn-lg mb-4">
+              :class="{ 'active': searchText === ''}" class="btn btn-outline-secondary btn-lg">
               全部現す</button><br>
-            <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but mb-2">
+            <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but">
                 <span :class="beans[a]">
                     {{ item }}
                 </span>
             </button>
         </div>
-        <div class="row col-md-9 justify-content-start mu" >
-            <div class="col-md-4 mb-md-4 " v-for="(item) in filterData" :key="item.id" >
+        <div class="row col-md-9 justify-content-start chose">
+            <div class="col-md-4 mu mb-5" v-for="(item) in filterData" :key="item.id" >
                 <div class="card border-0 shadow-sm">
                     <div style="height: 20vw; background-size: cover; background-position: center" 
                         :style="{backgroundImage: `url(${item.imageUrl})`}">
                     </div>
                     <div class="card-body">
                         <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
-                        <h5 class="card-title">
-                        <a href="#" class="text-dark">{{ item.title }}</a>
+                        <h5 class="card-title" style="height:3vw">
+                        <a href="#" class="text-success" >{{ item.title }}</a>
                         </h5>
                         <p class="card-text">{{ item.content }}</p>
                         <div class="d-flex justify-content-between align-items-baseline">
@@ -86,6 +87,20 @@
         display: inline-block;
         width:10vw;
         height:3vw
+    }
+    @media (max-width: 480px){
+    .asai{
+        background-image:none;
+    }
+    .naka{
+        background-image:none;
+    }
+    .deep{
+        background-image:none;
+    }
+    .kigu{
+        background-image:none;
+    }
     }
 </style>
 <script>
@@ -168,3 +183,4 @@ export default {
     },
 }
 </script>
+

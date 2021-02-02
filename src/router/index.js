@@ -5,7 +5,6 @@ import VueRouter from 'vue-router'
 //頁面
 import customerOut from '@/components/customerCheckout';
 import customer from '@/components/customerOrder';
-import dashboard from '@/components/dashboard';
 import products from '@/components/products';
 import coupon from '@/components/coupon';
 import Orders from '@/components/order';
@@ -16,6 +15,7 @@ import count from '@/components/count';
 import baking from '@/components/baking';
 import setsume from '@/components/setsume';
 import detail from '@/components/detail';
+import email from '@/components/email';
 Vue.use(VueRouter)
 export default new VueRouter({
     routes:[
@@ -72,59 +72,29 @@ export default new VueRouter({
                         name:'baking',
                         component:baking,
                     },
-                ]
-            },
-
-            
-
-
-
-
-
-
-
-            {
-                path:'/adminn',
-                name:'Dashboard',
-                component:dashboard,
-                meta: { requiresAuth: true },
-                children:[
-
+                    {
+                        path:'customer_checkout/:orderId',
+                        name:'customercheckout',
+                        component:customerOut,
+                    },
+                    {
+                        path:'coupon',
+                        name:'coupon',
+                        component:coupon,
+                    },
                     {
                         path: 'order',
                         name: 'Orders',
                         component: Orders,
                         meta: { requiresAuth: true },
                     },
-
-                ],
-            },
-            {
-                path:'/',
-                name:'Dashboard',
-                component:dashboard,
-                children:[{
-                    path:'customer_order',
-                    name:'customerOrder',
-                    component:customer,
-                },
-                {
-                    path:'customer_checkout/:orderId',
-                    name:'customercheckout',
-                    component:customerOut,
-                },         
+                    {
+                        path: 'email',
+                        name: 'email',
+                        component: email,
+                        meta: { requiresAuth: true },
+                    },
                 ]
             },
-            {
-                path:'/',
-                name:'Dashboard',
-                component:dashboard,
-                children:[{
-                    path:'coupon',
-                    name:'coupon',
-                    component:coupon,
-                }]
-            },
-            
         ]
 })
