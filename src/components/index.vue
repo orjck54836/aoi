@@ -1,7 +1,7 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
-        <header class="site-header col-md-12 position-fixed" :style="style">
+        <header class="site-header col-md-12" :style="style">
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md">
               <input type="checkbox" name="menu-switcher" id="menu-switcher" />
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </main>
-        <footer class="bg-dark footer text-center ">
+        <footer class="bg-dark footer text-center col-md-12">
           <div class="row bg-dark text-light awer">
              Copyright© Design by LEE CHIA-HAO<br>
              僅為個人作品使用，無任何商業用途
@@ -159,24 +159,6 @@ export default {
 html,body{
     height: 100vh; 
 }
-
-.site-header {
-  height:4rem;
-  display:flex;
-  position: relative;
-  z-index:9999;
-}
-.site-header button {
-    color: white;
-    background:#00000085;
-    transition:all 0.2s ease-in-out 0s;
-    position: relative;
-    top:0;
-    border-radius: 25px;
-    opacity:0.6;
-    margin-left:8px;
-}
-
 .product-device {
   position: absolute;
   right: 10%;
@@ -208,10 +190,7 @@ html,body{
   background-color: #e5e5e5;
 }
 
-.footer{
-    height:4rem;
-    
-}
+
 .awer{
     display:block;
     margin:auto;

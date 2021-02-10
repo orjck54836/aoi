@@ -1,16 +1,16 @@
 .but{
     font-size: 1.5vw;
     font-family: 'Times New Roman', Times, serif;
-    border:0;
-    background-color:#b97318c2;
-    color:#fff;
+    color:rgb(0, 0, 0);
     border-radius:10px;
     cursor:pointer;
-    border:1px #000000 solid;   
+    border-bottom:1px #000000 solid;   
+    margin-top: 1vw;
+    -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
 }
 .but:hover{
-    color:beige;
-    background-color:#fff#b97318c2;
+    color:rgb(0, 0, 0);
+    background-color:rgb(252, 192, 26);
     border:2px #000000 solid;
     opacity:0.6;
     font-size: 1.7vw;
@@ -61,5 +61,10 @@
         background-color:#867676c2;
         color:rgb(175, 126, 21);
     }
-    
+    .text-success{
+        font-size: 1vw;
+    }
+    .h6{
+        font-size: 2px;
+    }
 }

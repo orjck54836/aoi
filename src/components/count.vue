@@ -3,52 +3,57 @@
       <img src="./images/count.jpg" class="col-md-12">
         <div class="my-5 row justify-content-center">
             <div class="col-md-12">
-            <button @click="removeAll">del</button>
                 <table class="table">                
-                <thead>
+                <thead  v-if="cart.total > 0" >
                     <th></th>
                     <th>商品</th>
                     <th>數量</th>
                     <th>定價</th>
                 </thead>
-                <tbody>
-                    <tr  v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
-                    <td class="align-middle">
-                        <button type="button" class="btn btn-outline-danger btn-sm" 
-                        @click="removeCart(item.id)">
-                        <i class="far fa-trash-alt" ></i>
-                        </button>
-                    </td>
-                    <td class="align-middle">
-                    {{ item.product.title }}
-                        <div class="text-success" v-if="ty">
-                        已套用優惠券
-                        </div>
-                    </td>
-                    <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
-                    <td class="align-middle">{{ item.final_total }}</td>
+                <tbody  v-if="cart.total > 0" >
+                    <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-outline-danger btn-sm" 
+                            @click="removeCart(item.id)">
+                            <i class="far fa-trash-alt" ></i>
+                            </button>
+                        </td>
+                        <td class="align-middle">
+                        {{ item.product.title }}
+                            <div class="text-success" v-if="ty">
+                            クーポンを使いました
+                            </div>
+                        </td>
+                        <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
+                        <td class="align-middle">{{ item.final_total }}</td>
                     </tr>
                 </tbody>
-                <tfoot>
+                <tfoot  v-if="cart.total > 0" >
                     <tr>
                     <td colspan="3" class="text-right">総額</td>
-                    <td class="text-right">{{ cart.total }}</td>
-                    </tr>
-                    <tr  v-if="cart.final_total !== cart.total">
-                    <td colspan="3" class="text-right text-success" >折扣價</td>
-                    <td class="text-right text-success">{{ Math.round(cart.final_total) }}</td>
+                        <td class="text-right">{{ cart.total }}</td>
+                        </tr>
+                        <tr  v-if="cart.final_total !== cart.total">
+                        <td colspan="3" class="text-right text-success" >折扣價</td>
+                        <td class="text-right text-success">{{ Math.round(cart.final_total) }}</td>
                     </tr>
                 </tfoot>
-                </table>
-                <div class="input-group mb-3 input-group-sm">
-                <input type="text" class="form-control" v-model="coupon_code">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="couponCreat">
-                    套用優惠碼
-                    </button>
+            </table>
+                <router-link to="/admin/customer_order/setsume" v-if="cart.total == 0" class="kara">
+                    <tr style="height:10vw">
+                        Let's go to shop!
+                    </tr>
+                </router-link>
+                <div class="input-group mb-3 input-group-sm"  v-if="cart.total > 0">
+                    <input type="text" class="form-control" v-model="coupon_code">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" @click="couponCreat">
+                        クーポンを使う
+                        </button>
+                    </div>
                 </div>
-                </div>
-                <router-link to="/admin/email"><button>確定選購</button></router-link>
+                <button class="btn btn-outline-danger" @click="removeAll"  v-if="cart.total > 0">カートを消す</button>
+                <button class="btn btn-outline-secondary" v-if="cart.total > 0" @click="nextEmail">次へ</button>
             </div>
       </div>  
     </div>
@@ -152,6 +157,11 @@ export default {
                 }
             });
         },
+        nextEmail(){
+
+                    vm.$router.push('/admin/email')
+  
+        }
     },
     computed: {
         categories(){

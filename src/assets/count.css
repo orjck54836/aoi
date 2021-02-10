@@ -4,7 +4,8 @@
 }
 
 .table thead {
-  background-color: chocolate;
+  background-color: rgba(122, 57, 10, 0.774);
+  color: rgba(243, 242, 198, 0.774);
 }
 
 .table tbody {
@@ -17,17 +18,25 @@
   border: none;
 }
 
-.table1 {
-  border-top: 1px black solid;
-  font-size: 17px;
+.kara {
+  margin: 5vw auto 2vw;
+  font-size: 40px;
+  display: -ms-grid;
+  display: grid;
+  text-align: center;
+  font-family: fantasy;
+  text-decoration: none;
+  color: #e28813;
 }
 
-.table1 tbody {
-  border-top: 1px black solid;
-}
-
-.table1 tfoot {
-  color: black;
-  border-top: 1px black solid;
+.kara:hover {
+  margin: 5vw auto 2vw;
+  font-size: 50px;
+  display: -ms-grid;
+  display: grid;
+  text-align: center;
+  font-family: fantasy;
+  text-decoration: none;
+  color: rgba(165, 98, 11, 0.664);
 }
 /*# sourceMappingURL=count.css.map */

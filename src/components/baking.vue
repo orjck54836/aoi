@@ -2,14 +2,14 @@
     <div class="text-dark container" >
         <h2 class=" col-md-5" style="margin: auto ;display:block;border:0px">8段階で味と風味が変化する「焙煎度」</h2>
         <img src="https://mystyle.ucc.co.jp/magazine/wp-content/uploads/2019/03/24_04.jpg" style="margin:auto;display:block" data-aos="fade-up"
-        data-aos-duration="3000" class="col-sm-12">
+        data-aos-duration="3000" class="col-md-6">
         <h2 class="bg-success col-md-5" style="margin:5vw auto 5vw;display:block">8段階で味と風味が変化する「焙煎度」</h2>
         <h5 class="col-md-8 text-center" style="margin:5vw auto 5vw;display:block"> 
             生豆を焙煎することで、コーヒー豆に含まれる水分が減少し、コーヒー独特の風味が引き出されます。
             焙煎時間によって色や味わい、香りが変化し、焙煎度は浅炒りから深炒りまで8段階に分類されます。
             焙煎度が浅いと酸味を強く感じ、深いと苦味とコクが増します。
         </h5>
-       <img class="col-sm-12" src="https://hollys-corp.jp/wp/wp-content/uploads/2019/11/1643726-300x226.jpg" style="margin:5vw auto 2vw;display:block" >
+       <img class="col-md-6" src="https://hollys-corp.jp/wp/wp-content/uploads/2019/11/1643726-300x226.jpg" style="margin:5vw auto 2vw;display:block" >
        <div data-aos="fade-right" data-aos-duration="2000">
             <h3 class="moji col-md-4" style="margin:5vw auto 1vw;display:block">
                 1.ライトロースト　　Light roast　《浅煎り焙煎》

@@ -1,3 +1,19 @@
+.site-header {
+    height:4rem;
+    display:flex;
+    position: fixed;
+    z-index:9999;
+}
+.site-header button {
+    color: white;
+    background:#00000085;
+    transition:all 0.2s ease-in-out 0s;
+    position: relative;
+    top:0;
+    border-radius: 25px;
+    opacity:0.6;
+    margin-left:8px;
+}
 .logo{
     filter:invert(100%)
 }
@@ -6,11 +22,12 @@
 }
 
 .slogan{
-    position:absolute;
-    margin:5vw 25vw;
+    text-align: center;
     z-index:1;
     text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
     color: white;
+    font-size: 30px;
+    margin-top: 3vw;
 }
 .user{
     display: inline-flex;
@@ -79,6 +96,23 @@
     cursor: pointer;
     text-decoration:none
 }
+.coupon{
+    position: relative;
+    padding: 0;
+    height: 15vw;
+}
+hr{
+    width: 70%;
+    margin: auto;
+}
+.imageBanner{
+    display: flex;
+}
+.footer{
+    height:4rem;
+    position: absolute;
+    bottom: 0
+}
 @media (max-width: 480px){
     .site-header img{
         width:25vw
@@ -88,11 +122,12 @@
     }
     .slogan{
         position:absolute;
-        margin:-50vw 2vw;
+        margin:-40vw 2vw;
         z-index:1;
         text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
         color: white;
         text-align: center;
+        font-size: 15px;
     }
     .hamburger {
         width: 45px;
@@ -200,6 +235,17 @@
         font-size:16px;
         cursor: pointer;
         text-decoration:none
+    }
+    .coupon{
+        position: relative;
+        padding: 0;
+        height: 15vw;
+        margin: 3vw auto 3vw;
+    }
+    .footer{
+        height:4rem;
+        position: absolute;
+        bottom: 0
     }
 }
 

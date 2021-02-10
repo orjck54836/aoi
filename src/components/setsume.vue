@@ -17,12 +17,12 @@
             </form>
         </div>
         <!-- Search bar end-->
-        <div class="col-md-3  text-center justify-content-start bot">
+        <div class="col-md-3 text-center justify-content-start bot">
             <h2 class="mt-4 mb-4">種類で探す</h2>
             <button @click.prevent="searchText = ''"
               :class="{ 'active': searchText === ''}" class="btn btn-outline-secondary btn-lg">
               全部現す</button><br>
-            <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but">
+            <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but ">
                 <span :class="beans[a]">
                     {{ item }}
                 </span>
@@ -36,12 +36,12 @@
                     </div>
                     <div class="card-body">
                         <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
-                        <h5 class="card-title" style="height:3vw">
+                        <h5 class="card-title" >
                         <a href="#" class="text-success" >{{ item.title }}</a>
                         </h5>
                         <p class="card-text">{{ item.content }}</p>
                         <div class="d-flex justify-content-between align-items-baseline">
-                        <div class="h5" v-if="!item.price">{{ item.origin_price }}円</div>
+                        <div class="h6" v-if="!item.price">{{ item.origin_price }}円</div>
                         <div class="h6" v-if="item.price">原價 {{ item.origin_price }}円</div>
                         <div class="h6" v-if="item.price">今なら {{ item.price }}円！</div>
                         </div>

@@ -21,7 +21,7 @@ export default new VueRouter({
     routes:[
             {
                 path:'*',
-                redirect:'/admin'
+                redirect:'/admin/main'
             },
             {
                 path:'/admin',//元件呈現的名稱
@@ -65,7 +65,6 @@ export default new VueRouter({
                         path:'count',
                         name:'count',
                         component:count,
-                        meta: { requiresAuth: true }
                     },
                     {
                         path:'baking',
