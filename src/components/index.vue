@@ -52,7 +52,7 @@
                 </div>
             </div>
         </main>
-        <footer class="bg-dark footer text-center col-md-12">
+        <footer class="bg-dark footer text-center col-md-12 mt-4">
           <div class="row bg-dark text-light awer">
              Copyright© Design by LEE CHIA-HAO<br>
              僅為個人作品使用，無任何商業用途
@@ -90,7 +90,7 @@ export default {
         windowScroll() {
           let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           this.opacity = Math.abs(Math.round(scrollTop)) / 250;
-          this.style = {background: `rgba(0, 0, 0,${this.opacity})`}
+          this.style = {background: `rgba(148,121,107,${this.opacity})`}
 			  },
         signIn(){
         const api = `${process.env.APIPATH}/admin/signin`

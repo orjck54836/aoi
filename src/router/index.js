@@ -24,15 +24,15 @@ export default new VueRouter({
                 redirect:'/admin/main'
             },
             {
+                path:'/admin/main',//元件呈現的名稱
+                name:'main',// 對應的虛擬路徑
+                component:main,//對應的元件
+            },
+            {
                 path:'/admin',//元件呈現的名稱
                 name:'index',// 對應的虛擬路徑
                 component:index,//對應的元件
                 children:[
-                    {
-                        path:'main',
-                        name:'main',
-                        component:main,
-                    },
                     {
                         path:'customer_order',
                         name:'customerOrder',

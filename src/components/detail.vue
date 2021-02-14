@@ -5,8 +5,10 @@
         </div>
         <div class="col-md-8">
             <h3 class="text-left mb-4">{{product.title}}</h3>
-            <h4 class="text-success ">この商品について</h4><hr style="width:90%">
-            <h6 class="col-md-10 mb-4">{{product.description}}</h6><hr style="width:90%">
+            <h4 class="text-success ">この商品について</h4><hr style="width:100%"><br>
+            <h6 class="col-md-10 mb-4">{{product.description}}</h6><br>
+            <h5 class="text-left ml-3" style="color:brown">今なら {{ product.price }}円！</h5>
+            <hr style="width:100%"><br>
             <button @click.prevent="deCount">-</button>
             <input type="text" v-model="qty" readonly>
             <button @click.prevent="plCount">+</button>

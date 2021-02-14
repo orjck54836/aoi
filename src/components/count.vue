@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <button class="btn btn-outline-danger" @click="removeAll"  v-if="cart.total > 0">カートを消す</button>
-                <button class="btn btn-outline-secondary" v-if="cart.total > 0" @click="nextEmail">次へ</button>
+                <button class="btn btn-outline-secondary" v-if="cart.total > 0"  @click="nextEmail">次へ</button>
             </div>
       </div>  
     </div>
@@ -150,7 +150,6 @@ export default {
                     if(response.data.success){
                         vm.$router.push(`/admin/customer_checkout/${response.data.orderId}`)
                     }
-                    // vm.getCart();
                 });
                 } else {
                 console.log('欄位不完整');
@@ -158,9 +157,8 @@ export default {
             });
         },
         nextEmail(){
-
-                    vm.$router.push('/admin/email')
-  
+            const vm = this;
+            vm.$router.push('/admin/email')
         }
     },
     computed: {

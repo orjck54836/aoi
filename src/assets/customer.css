@@ -1,3 +1,24 @@
+.allcate {
+  font-size: 1.5vw;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  border-bottom: 1px #000000 solid;
+  margin-top: 1vw;
+  -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
+  width: 11vw;
+  padding: 0.5vw;
+}
+
+.allcate:hover {
+  color: black;
+  background-color: #fcc01a;
+  border: 2px #000000 solid;
+  opacity: 0.6;
+  font-size: 1.7vw;
+}
+
 .but {
   font-size: 1.5vw;
   font-family: 'Times New Roman', Times, serif;

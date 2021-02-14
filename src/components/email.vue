@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
         <div class="col-md-6 mt-4"> 
-                <table class="table text-dark" style="border:0">
-                <thead  class="bg-success text-dark">
+                <table class="table" style="border:0;">
+                <thead  class="text-light">
                     <th></th>
                     <th>商品</th>
                     <th>數量</th>
@@ -22,7 +22,7 @@
                         <td class="align-middle">{{ item.final_total }}</td>
                     </tr>
                 </tbody>
-                <tfoot style="background-color:white" class=" text-dark">
+                <tfoot style="background-color:gray">
                     <tr>
                         <td colspan="3" class="text-right">総額</td>
                         <td class="text-right">{{ cart.total }}</td>

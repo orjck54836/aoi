@@ -20,7 +20,7 @@
         <div class="col-md-3 text-center justify-content-start bot">
             <h2 class="mt-4 mb-4">種類で探す</h2>
             <button @click.prevent="searchText = ''"
-              :class="{ 'active': searchText === ''}" class="btn btn-outline-secondary btn-lg">
+              :class="{ 'active': searchText === ''}" class="allcate">
               全部現す</button><br>
             <button v-for="(item,a) in categories" :key="item" @click.prevent="searchText = item" :class="{ 'active': item === searchText}" class="but ">
                 <span :class="beans[a]">
@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
                         <h5 class="card-title" >
-                        <a href="#" class="text-success" >{{ item.title }}</a>
+                        <div href="#" class="text-success">{{ item.title }}</div>
                         </h5>
                         <p class="card-text">{{ item.content }}</p>
                         <div class="d-flex justify-content-between align-items-baseline">

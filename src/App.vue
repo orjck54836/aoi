@@ -10,7 +10,12 @@
 export default {
   
   name: 'App',
-
+  watch:{
+    '$route':function(to,from){
+　    document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    }
+  },
   created(){
     const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}`
     // const api = 'https://vue-course-api.hexschool.io/api/orjck54836/products';
