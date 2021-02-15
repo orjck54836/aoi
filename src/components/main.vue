@@ -164,13 +164,13 @@ export default {
         })
     },
     close(){
-        var menu = document.getElementById('#menu-switcher1');
+        var menu = document.getElementById('#menu-switcher');
         menu.style.transform = 'translateX(0%)';
     },
     goShop(){
          const vm = this
          vm.$router.push('/admin/customer_order/setsume')
-         var menu = document.getElementById('#menu-switcher1');
+         var menu = document.getElementById('#menu-switcher');
         menu.style.transform = 'translateX(0%)';
     },
     getCart(){
