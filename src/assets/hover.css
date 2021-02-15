@@ -8,4 +8,10 @@
 .pic img:nth-of-type(1):hover {
   opacity: 0;
 }
+
+@media (max-width: 480px) {
+  .pic img:nth-of-type(1):hover {
+    opacity: 0.7;
+  }
+}
 /*# sourceMappingURL=hover.css.map */

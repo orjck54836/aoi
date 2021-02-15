@@ -31,8 +31,7 @@
         <div class="row col-md-9 justify-content-start chose">
             <div class="col-md-4 mu mb-5" v-for="(item) in filterData" :key="item.id" >
                 <div class="card border-0 shadow-sm">
-                    <div style="height: 20vw; background-size: cover; background-position: center" 
-                        :style="{backgroundImage: `url(${item.imageUrl})`}">
+                    <div class="cardimg" :style="{backgroundImage: `url(${item.imageUrl})`}">
                     </div>
                     <div class="card-body">
                         <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>

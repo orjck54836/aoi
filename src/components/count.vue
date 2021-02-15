@@ -52,8 +52,7 @@
                         </button>
                     </div>
                 </div>
-                <button class="btn btn-outline-danger" @click="removeAll"  v-if="cart.total > 0">カートを消す</button>
-                <button class="btn btn-outline-secondary" v-if="cart.total > 0"  @click="nextEmail">次へ</button>
+                <button class="btn btn-outline-secondary col-md-2" v-if="cart.total > 0"  @click="nextEmail">次へ</button>
             </div>
       </div>  
     </div>
@@ -129,16 +128,6 @@ export default {
             vm.getCart();
             });
         },
-        removeAll(){
-            const vm = this;
-            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-            vm.isLoading = true
-            this.$http.delete(api).then((response) => {  
-            console.log(response.message)        
-            vm.isLoading = false;
-            vm.getCart();
-            });
-        },
         createOrder() {
             const vm = this;
             const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
@@ -157,8 +146,19 @@ export default {
             });
         },
         nextEmail(){
-            const vm = this;
-            vm.$router.push('/admin/email')
+            // const vm = this;
+            // vm.$router.push('/admin/email')
+            const api = `${process.env.APIPATH}/api/user/check`;
+            // eslint-disable-next-line
+            this.$http.post(api).then((response) => {
+                // 登入沒有問題
+                console.log(response.data.success);
+                if (response.data.success) {
+                this.$router.push('/admin/email');
+                } else {
+                alert('請先登入喔！')
+                }
+            })
         }
     },
     computed: {

@@ -10,13 +10,13 @@
               </label>
                 <!--手機選單-->
                 <ul class="menu">
-                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row  align-items-center zenbu mr-2 ">焙煎</router-link>
+                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu" @click="close">ザ.コーヒーとは</router-link>
+                    <router-link to="/admin/baking" class="row  align-items-center zenbu mr-2 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
-                    <div class="row align-items-center zenbu mr-2 " @click="goShop" v-model="check">商品情報</div>
+                    <div class="row align-items-center zenbu mr-2 " @click="goShop" v-model="check" >商品情報</div>
                     <i class="row  fas fa-user fa-2x align-items-center user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
                     <i class="row  align-items-center fas fa-sign-out-alt fa-2x user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut"></i>
-                    <router-link to="/admin/count" class="row align-items-center shop mr-2 "><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+                    <router-link to="/admin/count" class="row align-items-center shop mr-2 " @click="close"><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill" v-if="cart.carts.length > 0">{{cart.carts.length}}</span></i></router-link>
                 </ul>
                  <!--手機選單-->
             </nav>
@@ -29,7 +29,6 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title　" id="exampleModalLabel">会員登録</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-signin" >
@@ -65,7 +64,6 @@ import  $ from "jquery";
 export default {
   data() {
         return {
-            check:false,
             le:'',
             user:{
                 username:'',
@@ -73,6 +71,7 @@ export default {
             },
             style: {},
 			    	opacity: 0,
+            check:false,
         };
   },
   beforeRouteEnter(to, from, next) {
@@ -87,49 +86,67 @@ export default {
 			window.addEventListener("scroll", this.windowScroll); //监听页面滚动
   },
   methods:{
-        windowScroll() {
-          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-          this.opacity = Math.abs(Math.round(scrollTop)) / 250;
-          this.style = {background: `rgba(148,121,107,${this.opacity})`}
-			  },
-        signIn(){
-        const api = `${process.env.APIPATH}/admin/signin`
-        // const api = 'https://vue-course-api.hexschool.io/api/orjck54836/products';
-        const vm = this;
-        this.$http.post(api,vm.user).then((response) => {
-        console.log(response)
-        vm.$store.state.isLoading = true;
-        const token = response.data.token;
-        const expired = response.data.expired;
-        console.log(token,expired);
-        document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
-          if(response.data.success == true){
-            $('#exampleModal').modal('hide');
-            vm.check = true
-            vm.$store.state.isLoading = false;
-          }else{
-            alert('請輸入正確帳號密碼')
-          }
-        }) 
+    windowScroll() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      this.opacity = Math.abs(Math.round(scrollTop)) / 250;
+      this.style = {background: `rgba(148,121,107,${this.opacity})`}
     },
-        signOut(){
-        const api =`${process.env.APIPATH}/logout`;
-        const vm = this;
-        console.log(api)
-        this.$http.post(api).then((response) => {
-        console.log(response.data)
-        if(response.data.success){
-            vm.check = false
-            vm.$router.push('/admin/main')
+    signIn(){
+      const api = `${process.env.APIPATH}/admin/signin`
+      // const api = 'https://vue-course-api.hexschool.io/api/orjck54836/products';
+      const vm = this;
+      this.$http.post(api,vm.user).then((response) => {
+      console.log(response)
+      vm.$store.state.isLoading = true;
+      const token = response.data.token;
+      const expired = response.data.expired;
+      console.log(token,expired);
+      document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
+        if(response.data.success == true){
+          $('#exampleModal').modal('hide');
+          vm.check = true
+          vm.$store.state.isLoading = false;
+        }else{
+          alert('請輸入正確帳號密碼')
         }
-        })
+      }) 
+    },
+    signOut(){
+      const api =`${process.env.APIPATH}/logout`;
+      const vm = this;
+      console.log(api)
+      this.$http.post(api).then((response) => {
+      console.log(response.data)
+      if(response.data.success){
+          vm.check = false
+          vm.$router.push('/admin/main')
+      }
+      })
     },
     goShop(){
-         const vm = this
-         vm.$router.push('/admin/customer_order/setsume')
+        const vm = this;
+        vm.$router.push('/admin/customer_order/setsume');
+        var menu = document.getElementById('#menu-switcher');
+        menu.style.transform = 'translateX(0%)';
     },
     getCart(){
     this.$store.dispatch('getCart');
+    },
+    close(){
+      var menu = document.getElementById('#menu-switcher');
+      menu.style.transform = 'translateX(0%)';
+    },
+    loging(){
+      const api = `${process.env.APIPATH}/api/user/check`;
+      this.$http.post(api).then((response) => {
+          // 登入沒有問題
+          console.log(response.data.success);
+          if (response.data.success) {
+          this.check = true;
+          } else {
+          this.check = false;
+          }
+      })
     },
   },
   destroyed() {
@@ -137,6 +154,7 @@ export default {
   },
   created(){
       this.getCart();
+      this.loging();
       //網址來源https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
       const cookieValue = document.cookie.split(';').find(row => row.startsWith('hexToken'))
       .split('=')[1];
@@ -189,8 +207,6 @@ html,body{
   left: 5%;
   background-color: #e5e5e5;
 }
-
-
 .awer{
     display:block;
     margin:auto;

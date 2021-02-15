@@ -34,6 +34,8 @@
 main{
     top: 6vw;
     position: relative;
+    min-height: 100%;
+    padding-bottom: 220px;
 }
 .logo{
     filter:invert(0%)
@@ -196,9 +198,12 @@ hr{
     padding-top: 8vw;
 }
 .footer{
+    height:6rem;
+}
+.footer1{
     height:4rem;
     position: relative;
-    top:5vw;
+    top: 2vw;
 }
 @media (max-width: 480px){
     .site-header img{
@@ -328,6 +333,56 @@ hr{
         width: 70vw;
         cursor: pointer;
     }
+    .user1{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .user1:hover{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color:#844200;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 30px;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .shop1{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .shop1:hover{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color:#844200;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 30px;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
     .zenbu{
         display: inline-flex;
         padding: 15px;
@@ -347,6 +402,25 @@ hr{
         cursor: pointer;
         text-decoration:none
     }
+    .zenbu1{
+        display: inline-flex;
+        padding: 15px;
+        margin: 0px 20px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 10px;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        width: 70vw;
+        cursor: pointer;
+    }
+    .zenbu1:hover{
+        color:#844200;
+        font-size:16px;
+        cursor: pointer;
+        text-decoration:none
+    }
     .coupon{
         position: relative;
         padding: 0;
@@ -357,8 +431,18 @@ hr{
         top: 18vw;
         position: relative;
     }
+    .anf1{
+        width: 30%;
+    }
+    .anf{
+        display: none;
+    }
     .footer{
         height:4rem;
+    }
+    .footer1{
+        height:4rem;
+        margin-top: 20vw;
     }
 }
 

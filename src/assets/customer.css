@@ -42,6 +42,14 @@
   vertical-align: sub;
 }
 
+.cardimg {
+  height: 22vw;
+  background-size: cover;
+  background-position: center;
+  width: 16vw;
+  margin: 1vw auto;
+}
+
 @media (max-width: 480px) {
   .cust img {
     display: none;
@@ -67,8 +75,8 @@
     cursor: pointer;
     height: 3rem;
     border: 0;
-    border-top: 1px #928585 solid;
-    background-color: #ffffffc2;
+    border-top: 1px #000000 solid;
+    background-color: #8a6029;
     color: black;
   }
   .bot button:hover {
@@ -80,8 +88,8 @@
     height: 3rem;
     border: 0;
     border-bottom: 1px #4e4343 solid;
-    background-color: #867676c2;
-    color: #af7e15;
+    background-color: #c7770ec2;
+    color: black;
   }
   .text-success {
     font-size: 1vw;

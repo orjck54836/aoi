@@ -9,17 +9,17 @@
                 <div class="hamburger-line1"></div>
               </label>
                 <ul class="menu">
-                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu1">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row  align-items-center zenbu1 mr-2 ">焙煎</router-link>
+                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu1" @click="close">ザ.コーヒーとは</router-link>
+                    <router-link to="/admin/baking" class="row  align-items-center zenbu1 mr-2 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
                     <div class="row align-items-center zenbu1 mr-2 " @click="goShop" v-model="check">商品情報</div>
                     <i class="row  fas fa-user fa-2x align-items-center user1 mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
                     <i class="row  align-items-center fas fa-sign-out-alt fa-2x user1 mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut"></i>
-                    <router-link to="/admin/count" class="row align-items-center shop1 mr-2 "><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill">{{cart.carts.length}}</span></i></router-link>
+                    <router-link to="/admin/count" class="row align-items-center shop1 mr-2 " @click="close"><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill" v-if="cart.carts.length > 0">{{cart.carts.length}}</span></i></router-link>
                 </ul>
             </nav>
         </header>
-        <div id="ty" style="z-index:0;padding:0" class="container-fluid">
+        <div style="z-index:0;padding:0" class="container-fluid">
             <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -52,9 +52,9 @@
                 </div>
                 <div class="slogan mb-4" data-aos="zoom-in">コーヒーは飲むことができる一種の魔法である</div><hr>
                 <div class="row col-md-12 justify-content-center pic" style="margin:3vw auto 5vw">
-                    <span><img src="./images/asai.png" class="col-md-3 col-sm-3"><img src="./images/asaiz.png" class="col-md-3 col-sm-3" style="position:absolute;z-index:-9999;margin-right:49vw"></span>
-                    <span><img src="./images/naka.png" class="col-md-3 col-sm-3"><img src="./images/nakaz.png" class="col-md-3 col-sm-3" style="position:absolute;z-index:-9999"></span>
-                <span><img src="./images/fukai.png" class="col-md-3 col-sm-3"><img src="./images/fukaiz.png" class="col-md-3 col-sm-3" style="position:absolute;z-index:-9999;margin-left:49vw"></span>
+                    <span><img src="./images/asai.png" class="col-md-3 anf1"><img src="./images/asaiz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999;margin-right:49vw"></span>
+                    <span><img src="./images/naka.png" class="col-md-3 anf1"><img src="./images/nakaz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999"></span>
+                <span><img src="./images/fukai.png" class="col-md-3 anf1"><img src="./images/fukaiz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999;margin-left:49vw"></span>
                 </div><hr>
                 <div class="imageBanner mb-4 mt-2 col-md-11" style="margin:auto;display:block">
                     <img src="./images/web_coupon.png" class="coupon col-md-6 shake shake-slow" data-aos="fade-right"　data-aos-duration="2000">
@@ -70,7 +70,6 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title　" id="exampleModalLabel">会員登録</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-signin" >
@@ -92,8 +91,8 @@
                     </div>
                 </div>
             </div>
-            <footer class="bg-dark footer text-center col-md-12">
-                <div class="row bg-dark text-light">
+            <footer class="bg-dark footer1 col-md-12">
+                <div class="row text-light ">
                     Copyright© Design by LEE CHIA-HAO<br>
                     僅為個人作品使用，無任何商業用途
                 </div>
@@ -106,14 +105,14 @@ import  $ from "jquery";
 export default {
   data() {
         return {
-            check:false,
             le:'',
             user:{
                 username:'',
                 password:''
             },
             style: {},
-			    	opacity: 0,
+            opacity: 0,
+            check:false,
         };
   },
   beforeRouteEnter(to, from, next) {
@@ -146,7 +145,6 @@ export default {
         document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
           if(response.data.success == true){
             $('#exampleModal').modal('hide');
-            vm.check = true
             vm.$store.state.isLoading = false;
           }else{
             alert('請輸入正確帳號密碼')
@@ -165,12 +163,30 @@ export default {
         }
         })
     },
+    close(){
+        var menu = document.getElementById('#menu-switcher1');
+        menu.style.transform = 'translateX(0%)';
+    },
     goShop(){
          const vm = this
          vm.$router.push('/admin/customer_order/setsume')
+         var menu = document.getElementById('#menu-switcher1');
+        menu.style.transform = 'translateX(0%)';
     },
     getCart(){
     this.$store.dispatch('getCart');
+    },
+    loging(){
+        const api = `${process.env.APIPATH}/api/user/check`;
+        this.$http.post(api).then((response) => {
+            // 登入沒有問題
+            console.log(response.data.success);
+            if (response.data.success) {
+            this.check = true;
+            } else {
+            this.check = false;
+            }
+        })
     },
   },
   destroyed() {
@@ -178,6 +194,7 @@ export default {
   },
   created(){
       this.getCart();
+      this.loging();
       //網址來源https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
       const cookieValue = document.cookie.split(';').find(row => row.startsWith('hexToken'))
       .split('=')[1];
@@ -200,7 +217,5 @@ export default {
     display:contents;
     z-index:0;
 }
-#ty{
-    height:100%;
-}
+
 </style>

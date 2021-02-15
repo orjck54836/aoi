@@ -1,5 +1,5 @@
 <template>
-   <div class="my-5 row justify-content-center">
+   <div class="row justify-content-center">
   <form class="col-md-6" @submit.prevent="payOrder">
     <table class="table">
       <thead>
@@ -29,19 +29,19 @@
           <td>{{ order.user.email }}</td>
         </tr>
         <tr>
-          <th>姓名</th>
+          <th>名前</th>
           <td>{{ order.user.name }}</td>
         </tr>
         <tr>
-          <th>收件人電話</th>
+          <th>電話番号</th>
           <td>{{ order.user.tel }}</td>
         </tr>
         <tr>
-          <th>收件人地址</th>
+          <th>届け先</th>
           <td>{{ order.user.address }}</td>
         </tr>
         <tr>
-          <th>付款狀態</th>
+          <th>お支払い</th>
           <td>
             <span v-if="!order.is_paid">尚未付款</span>
             <span v-else class="text-success">付款完成</span>
@@ -50,7 +50,7 @@
       </tbody>
     </table>
     <div class="text-right" v-if="order.is_paid === false">
-      <button class="btn btn-danger">確認付款去</button>
+      <button class="btn btn-danger">確認</button>
     </div>
   </form>
 </div>
