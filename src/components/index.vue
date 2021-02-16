@@ -1,5 +1,6 @@
 <template>
     <div>
+        <alert></alert>
         <loading :active.sync="isLoading"></loading>
         <header class="site-header col-md-12" :style="style">
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo"></router-link>
@@ -61,7 +62,11 @@
 </template>
 <script>
 import  $ from "jquery";
+import alert from './alertMessage.vue'
 export default {
+  components:{
+        alert,
+  },
   data() {
         return {
             le:'',

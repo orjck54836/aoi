@@ -4,7 +4,7 @@
             <div class="row text-center justify-content-center">
                 <p class="text-success space">ABOUT KOHIKAN</p>
                 <h2 class="">一杯のコーヒーに心をこめて</h2>
-                <h6 class="col-md-12 mt-md-5" data-aos="zoom-in" data-aos-duration="2000">
+                <h6 class="col-md-12 mt-md-5 " data-aos="zoom-in" data-aos-duration="2000" style="text-align:left;">
                     私たち珈琲館は、このスローガンから始まりました。<br>
                     以来、一貫して品質本位・お客様最優先の経営姿勢を貫いています。<br>
                     くつろぎのひとときや楽しい語らい・静かな思索、<br>
@@ -15,9 +15,10 @@
                 </h6>
                 <img src="./images/beans.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000" style="margin-bottom:10vw ">
                 <div class="col-md-6 space">
+                <p class="text-success">INTRODUCTION OF COFFEE BEANS</p>
                     <h3>格別な味と香り、独特のコクが<br>
                     自慢のオリジナルコーヒーです</h3>
-                    <p class="text-success">INTRODUCTION OF COFFEE BEANS</p>
+                    
                 </div>
                 <div class="col-md-6 space" style="text-align:left;" >
                     <h6>珈琲館はあくまで“品質”にこだわり続け、

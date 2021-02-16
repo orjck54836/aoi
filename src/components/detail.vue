@@ -56,9 +56,11 @@ export default {
                 const newQty = originQty + qty;
                 this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
                 this.moji = 'カートに入れました！'
+                this.$bus.$emit('messsage:push','カートに入れました！','success')
             } else {
                 this.$store.dispatch('addCart', { id, qty });
                 this.moji = 'カートに入れました！'
+                this.$bus.$emit('messsage:push','カートに入れました！','success')
             }
         },
       

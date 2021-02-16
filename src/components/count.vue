@@ -47,12 +47,12 @@
                 <div class="input-group mb-3 input-group-sm"  v-if="cart.total > 0">
                     <input type="text" class="form-control" v-model="coupon_code">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" @click="couponCreat">
+                        <button class="btn btn-outline-warning" type="button" @click="couponCreat">
                         クーポンを使う
                         </button>
                     </div>
                 </div>
-                <button class="btn btn-outline-secondary col-md-2" v-if="cart.total > 0"  @click="nextEmail">次へ</button>
+                <button class="btn btn-5 " v-if="cart.total > 0"  @click="nextEmail">次へ</button>
             </div>
       </div>  
     </div>
@@ -156,7 +156,7 @@ export default {
                 if (response.data.success) {
                 this.$router.push('/admin/email');
                 } else {
-                alert('請先登入喔！')
+                this.$bus.$emit('messsage:push','請先登入喔！','danger')
                 }
             })
         }

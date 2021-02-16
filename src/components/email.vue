@@ -67,7 +67,7 @@
                 <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
                 </div>
                 <div class="text-right">
-                <button class="btn btn-danger">確認</button>
+                <button class="btn btn-4">確認</button>
                 </div>
             </form>
         </div>

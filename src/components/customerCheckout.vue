@@ -1,5 +1,5 @@
 <template>
-   <div class="row justify-content-center">
+   <div class="row justify-content-center container-fluid" style="margin:0">
   <form class="col-md-6" @submit.prevent="payOrder">
     <table class="table">
       <thead>
@@ -86,6 +86,7 @@ export default {
                 console.log(response);
                 if (response.data.success) {
                 vm.getOrder();
+                this.$bus.$emit('messsage:push','お支払い完成です！','success')
                 }
                 vm.isLoading = false;
             });

@@ -10,7 +10,7 @@
               </label>
                 <ul class="menu">
                     <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu1" @click="close">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row  align-items-center zenbu1 mr-2 " @click="close">焙煎</router-link>
+                    <router-link to="/admin/baking" class="row align-items-center zenbu1 mr-2 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
                     <div class="row align-items-center zenbu1 mr-2 " @click="goShop" v-model="check">商品情報</div>
                     <i class="row  fas fa-user fa-2x align-items-center user1 mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
@@ -29,23 +29,24 @@
                     <div class="carousel-item active justify-content-around align-items-center">
                         <img src="./images/banner1.jpg" class="col-md-12" style="padding:0;">
                         <div class="carousel-caption d-none d-md-block" >
-                            <h3 style="position:relative;top:-30vw; left:30vw;" >格別な味と香り、独特のコクが<br>
+                            <h3 style="position:relative;top:-30vw; left:40vw;text-align:left;" >
+                            珈琲館はあくまで“品質”にこだわり続け、<br>
+                            良質のコーヒー豆だけを厳選し、<br>
+                            格別な味と香り、独特のコクが<br>
                             自慢のオリジナルコーヒーです</h3>
-                            <h5 style="position:relative;top:-430px;left:380px;text-align:left;" data-aos="fade-down" >
-                                珈琲館はあくまで“品質”にこだわり続け、<br>
-                                良質のコーヒー豆だけを厳選し、<br>
-                                しかも少量でしか生産していません。<br>
-                                お客様に最高のコーヒーだけを<br>
-                                お届けすることが珈琲館のモットーなのです。<br>
-                                そこにはどんな妥協も許されません<br>
-                            </h5>
                         </div>
                     </div>
                         <div class="carousel-item ">
                             <img src="./images/banner2.jpg" class="col-md-12 " style="padding:0">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3 style="position:relative;top:-40vw; left:1vw;text-align:left;">
+                                    1粒の種から1杯のカップまで<br>
+                                    全ての行程に熱意を感じるコーヒーを。
+                                </h3>
+                                <h4 style="position:relative;top:-37vw; left:1vw;text-align:left;">
+                                    世界のコーヒー産地でのさまざまな<br>取り組みを通じて
+                                    見つけた最高の<br>コーヒー豆を、豆が本来持つ特徴を<br>最大限に活かしています。
+                                </h4>
                             </div>
                         </div>
                     </div>
