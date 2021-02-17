@@ -10,7 +10,7 @@
                 <div class="hamburger-line"></div>
               </label>
                 <!--手機選單-->
-                <ul class="menu">
+                <ul class="menu" ref="menu">
                     <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu" @click="close">ザ.コーヒーとは</router-link>
                     <router-link to="/admin/baking" class="row  align-items-center zenbu mr-2 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
@@ -64,6 +64,14 @@
 import  $ from "jquery";
 import alert from './alertMessage.vue'
 export default {
+  watch: {
+    $route (to,from) {
+      console.log(to.path,from.path) // 查看目前要前往的路徑是否與目前路徑相同
+      if(to.path !== from.path) {
+      this.$refs.menu.style.transform = 'translateX(-100%)';
+      }
+    }
+  }, 
   components:{
         alert,
   },
