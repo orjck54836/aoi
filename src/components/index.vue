@@ -5,7 +5,7 @@
         <header class="site-header col-md-12" :style="style">
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md">
-              <input type="checkbox" name="menu-switcher" id="menu-switcher" />
+              <input type="checkbox" name="menu-switcher" id="menu-switcher" v-model="hammenucheck" @click="this.hammenucheck = !this.hammenucheck"/>
               <label for="menu-switcher" class="hamburger">
                 <div class="hamburger-line"></div>
               </label>
@@ -22,6 +22,7 @@
                  <!--手機選單-->
             </nav>
         </header>
+        <div id="space"></div>
         <main>
             <router-view></router-view>
             <!-- Modal -->
@@ -53,7 +54,7 @@
             </div>
         </main>
         <footer class="bg-dark footer text-center col-md-12 mt-4">
-          <div class="row bg-dark text-light awer">
+          <div class=" bg-dark text-light awer">
              Copyright© Design by LEE CHIA-HAO<br>
              僅為個人作品使用，無任何商業用途
           </div>
@@ -68,7 +69,7 @@ export default {
     $route (to,from) {
       console.log(to.path,from.path) // 查看目前要前往的路徑是否與目前路徑相同
       if(to.path !== from.path) {
-      this.$refs.menu.style.transform = 'translateX(-100%)';
+        this.hammenucheck = false;
       }
     }
   }, 
@@ -85,6 +86,7 @@ export default {
             style: {},
 			    	opacity: 0,
             check:false,
+            hammenucheck:false,
         };
   },
   beforeRouteEnter(to, from, next) {
@@ -181,50 +183,16 @@ export default {
     },
     cart(){
       return this.$store.state.cart
+    },
+    switchmenu () {
+      if(this.hammenucheck) {
+      this.$refs.menu.style.transform = 'translateX(0%)';
+      } else {
+      this.$refs.menu.style.transform = 'translateX(-100%)';
+      }
     }
   },
 }
 </script>
 
-<style scoped>
-html,body{
-    height: 100vh; 
-}
-.product-device {
-  position: absolute;
-  right: 10%;
-  bottom: -30%;
-  width: 300px;
-  height: 540px;
-  background-color: #333;
-  border-radius: 21px;
-  transform: rotate(30deg);
-}
-.product-device::before {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  bottom: 10%;
-  left: 10px;
-  content: "";
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: 5px;
-}
-.carousel-inner img{
-  height:45vw;
-}
-.product-device-2 {
-  top: -25%;
-  right: auto;
-  bottom: 0;
-  left: 5%;
-  background-color: #e5e5e5;
-}
-.awer{
-    display:block;
-    margin:auto;
-}
-
-
-</style>
 

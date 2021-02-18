@@ -1,5 +1,13 @@
+html {
+  height: 100vh;
+}
+
+#space {
+  height: 10vh;
+}
+
 .site-header {
-  height: 4rem;
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,10 +50,8 @@
 }
 
 main {
-  top: 6vw;
   position: relative;
-  min-height: 100%;
-  padding-bottom: 220px;
+  min-height: 80vh;
 }
 
 .logo {
@@ -255,7 +261,7 @@ hr {
 }
 
 .footer {
-  height: 6rem;
+  height: 10vh;
 }
 
 .footer1 {

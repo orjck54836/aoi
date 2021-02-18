@@ -93,7 +93,7 @@
                 </div>
             </div>
             <footer class="bg-dark footer1 col-md-12">
-                <div class="row text-light ">
+                <div class="text-center text-light ">
                     Copyright© Design by LEE CHIA-HAO<br>
                     僅為個人作品使用，無任何商業用途
                 </div>
@@ -213,10 +213,10 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style scoped> 
 .row>* {
-    display:contents;
-    z-index:0;
+  display:contents;
+  z-index:0;
 }
 
 </style>

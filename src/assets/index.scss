@@ -1,5 +1,11 @@
+html{
+    height: 100vh;
+}
+#space{
+    height: 10vh;
+}
 .site-header {
-    height:4rem;
+    height:10vh;
     display:flex;
     z-index:9999;
     margin-bottom: 2vw;
@@ -32,10 +38,8 @@
     margin-left:8px;
 }
 main{
-    top: 6vw;
     position: relative;
-    min-height: 100%;
-    padding-bottom: 220px;
+    min-height: 80vh;
 }
 .logo{
     filter:invert(0%)
@@ -198,7 +202,7 @@ hr{
     padding-top: 8vw;
 }
 .footer{
-    height:6rem;
+    height:10vh;
 }
 .footer1{
     height:4rem;
