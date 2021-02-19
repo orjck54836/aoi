@@ -29,7 +29,7 @@ html {
 }
 
 .site-header1 {
-  height: 4rem;
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,6 +57,8 @@ main {
 .logo {
   -webkit-filter: invert(0%);
           filter: invert(0%);
+  margin-top: 0.5vw;
+  margin-left: 4vw;
 }
 
 .logo:hover {
@@ -67,6 +69,8 @@ main {
 .logo1 {
   -webkit-filter: invert(100%);
           filter: invert(100%);
+  margin-top: 0.5vw;
+  margin-left: 4vw;
 }
 
 .logo1:hover {
@@ -81,6 +85,7 @@ main {
   color: white;
   font-size: 30px;
   margin-top: 3vw;
+  font-family: cursive;
 }
 
 .user {
@@ -88,7 +93,6 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 15px;
-  margin: 0px 0px 10px;
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
@@ -116,7 +120,6 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 15px;
-  margin: 0px 0px 10px;
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
@@ -144,7 +147,6 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 15px;
-  margin: 0px 0px 10px;
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
@@ -171,7 +173,6 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 15px;
-  margin: 0px 0px 10px;
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
@@ -207,6 +208,8 @@ main {
   display: flex;
   position: relative;
   background-color: transparent;
+  margin-bottom: 0;
+  font-family: cursive;
 }
 
 .zenbu {
@@ -256,26 +259,47 @@ hr {
 
 .imgkkk {
   background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZmZlZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-  height: 50vw;
-  padding-top: 8vw;
+  height: 35vw;
+}
+
+.video {
+  margin: auto;
+  height: 30vh;
+}
+
+.imgkkk h3 {
+  color: white;
+  font-family: cursive;
 }
 
 .footer {
   height: 10vh;
+  background-color: #362403;
+  padding-top: 1vh;
+  font-family: cursive;
 }
 
 .footer1 {
-  height: 4rem;
+  height: 10vh;
   position: relative;
   top: 2vw;
+  background-color: #362403;
+  padding-top: 1vh;
+  font-family: cursive;
 }
 
 @media (max-width: 480px) {
+  .site-header {
+    height: 10vh;
+  }
   .site-header img {
     width: 25vw;
   }
   .site-header1 img {
     width: 25vw;
+  }
+  #space {
+    height: 10vh;
   }
   .ph img {
     max-width: 22vw;
@@ -520,7 +544,6 @@ hr {
     margin: 3vw auto 3vw;
   }
   main {
-    top: 18vw;
     position: relative;
   }
   .anf1 {
@@ -529,8 +552,18 @@ hr {
   .anf {
     display: none;
   }
+  .imgkkk {
+    background-image: none;
+  }
+  .imgkkk h3 {
+    background-image: none;
+  }
+  .video {
+    margin: auto;
+    height: 40vw;
+  }
   .footer {
-    height: 4rem;
+    height: 10vh;
   }
   .footer1 {
     height: 4rem;

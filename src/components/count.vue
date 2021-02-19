@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <img src="./images/count.jpg" class="col-md-12">
-        <div class="my-5 row justify-content-center">
+        <div class="my-5 row justify-content-center count">
             <div class="col-md-12">
                 <table class="table">                
                 <thead  v-if="cart.total > 0" >
@@ -20,9 +20,6 @@
                         </td>
                         <td class="align-middle">
                         {{ item.product.title }}
-                            <div class="text-success" v-if="ty">
-                            クーポンを使いました
-                            </div>
                         </td>
                         <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
                         <td class="align-middle">{{ item.final_total }}</td>
@@ -66,7 +63,6 @@ export default {
     data(){
         return{
         product:{},
-        ty:false,
         isLoading: false,
         coupon_code:'',
         cart: {},
@@ -113,7 +109,6 @@ export default {
             vm.isLoading = true
             this.$http.post(api,{ data: coupon }).then((response) => {  
             console.log('ty',response)
-            vm.ty = true;
             vm.getCart();        
             vm.isLoading = false
             });

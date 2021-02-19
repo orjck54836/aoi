@@ -1,6 +1,10 @@
+.count {
+  font-family: cursive;
+}
+
 .table {
-  -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
-  border: 2px black solid;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.7));
+  border: 1px black solid;
 }
 
 .table thead {
@@ -13,7 +17,7 @@
 }
 
 .table tfoot {
-  background-color: #413e3c;
+  background-color: #3a1903;
   color: white;
   border: none;
 }

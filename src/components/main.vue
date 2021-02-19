@@ -9,10 +9,10 @@
                 <div class="hamburger-line1"></div>
               </label>
                 <ul class="menu">
-                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu1" @click="close">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row align-items-center zenbu1 mr-2 " @click="close">焙煎</router-link>
+                    <router-link to="/admin/coffee" class="row mr-3 align-items-center zenbu1" @click="close">ザ.コーヒーとは</router-link>
+                    <router-link to="/admin/baking" class="row align-items-center zenbu1 mr-3 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
-                    <div class="row align-items-center zenbu1 mr-2 " @click="goShop" v-model="check">商品情報</div>
+                    <div class="row align-items-center zenbu1 mr-3 " @click="goShop" v-model="check">商品情報</div>
                     <i class="row  fas fa-user fa-2x align-items-center user1 mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
                     <i class="row  align-items-center fas fa-sign-out-alt fa-2x user1 mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut"></i>
                     <router-link to="/admin/count" class="row align-items-center shop1 mr-2 " @click="close"><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill" v-if="cart.carts.length > 0">{{cart.carts.length}}</span></i></router-link>
@@ -29,7 +29,7 @@
                     <div class="carousel-item active justify-content-around align-items-center">
                         <img src="./images/banner1.jpg" class="col-md-12" style="padding:0;">
                         <div class="carousel-caption d-none d-md-block" >
-                            <h3 style="position:relative;top:-30vw; left:40vw;text-align:left;" >
+                            <h3 style="position:relative;top:-30vw; left:40vw;text-align:left;font-family: cursive;" >
                             珈琲館はあくまで“品質”にこだわり続け、<br>
                             良質のコーヒー豆だけを厳選し、<br>
                             格別な味と香り、独特のコクが<br>
@@ -39,11 +39,11 @@
                         <div class="carousel-item ">
                             <img src="./images/banner2.jpg" class="col-md-12 " style="padding:0">
                             <div class="carousel-caption d-none d-md-block">
-                                <h3 style="position:relative;top:-40vw; left:1vw;text-align:left;">
+                                <h3 style="position:relative;top:-40vw; left:1vw;text-align:left;font-family: cursive;">
                                     1粒の種から1杯のカップまで<br>
                                     全ての行程に熱意を感じるコーヒーを。
                                 </h3>
-                                <h4 style="position:relative;top:-37vw; left:1vw;text-align:left;">
+                                <h4 style="position:relative;top:-37vw; left:1vw;text-align:left;font-family: cursive;">
                                     世界のコーヒー産地でのさまざまな<br>取り組みを通じて
                                     見つけた最高の<br>コーヒー豆を、豆が本来持つ特徴を<br>最大限に活かしています。
                                 </h4>
@@ -62,11 +62,14 @@
                     <img src="http://design-library.jp/wp-content/uploads/1596972793_3fd22d4d.jpg" class="col-md-5" data-aos="fade-left"　data-aos-duration="3000">
                 </div>    
                 <div class="imgkkk"> 
-                    <img src="./images/kkk.gif" class="col-md-8" style="padding:0;margin:auto;display:block">
-                </div>  
-            </div>
+                    <iframe  class="video col-md-5"src="https://www.youtube.com/embed/SiNDnJLag7o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                    <h3>10分のアニメで、コーヒーの歴史について学びましょう。<br>
+                        コーヒーの文化は人々を魅了し、世界中に広がりました。 
+                    </h3>
+                </div>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -92,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <footer class="bg-dark footer1 col-md-12">
+            <footer class=" footer1 col-md-12">
                 <div class="text-center text-light ">
                     Copyright© Design by LEE CHIA-HAO<br>
                     僅為個人作品使用，無任何商業用途
@@ -147,6 +150,7 @@ export default {
           if(response.data.success == true){
             $('#exampleModal').modal('hide');
             vm.$store.state.isLoading = false;
+            vm.check = true;
           }else{
             alert('請輸入正確帳號密碼')
           }

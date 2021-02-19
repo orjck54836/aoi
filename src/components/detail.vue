@@ -3,10 +3,10 @@
         <div class="col-md-4">            
             <div style="height:20vw; background-size:contain;background-position: center;background-repeat:no-repeat;" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 detail">
             <h3 class="text-left mb-4">{{product.title}}</h3>
             <h4 class="text-success ">この商品について</h4><hr style="width:100%"><br>
-            <h6 class="col-md-10 mb-4">{{product.description}}</h6><br>
+            <h6 class="col-md-10">{{product.description}}</h6><br>
             <h5 class="text-left ml-3" style="color:brown">今なら {{ product.price }}円！</h5>
             <hr style="width:100%"><br>
             <button @click.prevent="deCount">-</button>
@@ -49,12 +49,12 @@ export default {
             const target = this.cart.carts.filter(items => items.product_id === id);
             if (target.length > 0) {
                 const sameCartItem = target[0];
-                const originQty = sameCartItem.qty;
-                console.log('cc',originQty)
+                const originQty = sameCartItem.qty;                
                 const originCartId = sameCartItem.id;
                 const originProductId = sameCartItem.product.id;
                 const newQty = originQty + qty;
-                this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
+                console.log('cc',target.length)
+                this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty});
                 this.moji = 'カートに入れました！'
                 this.$bus.$emit('messsage:push','カートに入れました！','success')
             } else {

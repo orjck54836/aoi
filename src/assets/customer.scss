@@ -1,6 +1,6 @@
 .allcate{
     font-size: 1.5vw;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: cursive;
     color:rgb(0, 0, 0);
     border-radius:10px;
     cursor:pointer;
@@ -17,9 +17,18 @@
     opacity:0.6;
     font-size: 1.7vw;
 }
+.h6{
+    font-size: 10px;
+    color: rgb(53, 47, 47);
+}
+.price{
+    font-size: 15px;
+    color: rgb(124, 28, 11);
+    font-family: fantasy;
+}
 .but{
     font-size: 1.5vw;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: cursive;
     color:rgb(0, 0, 0);
     border-radius:10px;
     cursor:pointer;
@@ -37,16 +46,71 @@
 .but span{
     vertical-align: sub;
 }
+.card{
+    background-color: #fefbf4;
+    border-radius:10px;
+}
 .cardimg{
     height: 22vw;
     background-size: cover; 
     background-position:center;
     width: 16vw;
     margin:1vw auto;
+    background-repeat: no-repeat;
+}
+.kuwashiku{
+    letter-spacing: 0;
+    background-color:rgb(114, 78, 38);
+    color: white;
+    font-family: cursive;
+}
+.kuwashiku:hover,.kuwashiku:active{
+    background-color: rgb(95, 53, 6);
+    border-radius: 10px;
+    color: white;
+    letter-spacing: 5px;
+}
+.kuwashiku:after,
+.kuwashiku:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.kuwashiku:hover:after,
+.kuwashiku:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 50%;
+}
+
+.kuwashiku:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 50%;
+}
+.card-title{
+    color:rgb(54, 36, 3);
+    font-size: 18px;
+    font-family: cursive;
+}
+.detail{
+    font-family: cursive;
 }
 @media (max-width: 480px){
     .cust img{
         display: none;
+    }
+    .card-title{
+        color:rgb(54, 36, 3);
+        font-size: 12px;
     }
     .but span{
         vertical-align: baseline;
@@ -54,7 +118,6 @@
     }
     .mu{
         width: 40vw;
-        margin-top: 5vw;
         margin-left: 2vw;
     }
     .chose{
@@ -62,6 +125,9 @@
     }
     .search{
         display: none;
+    }
+    .bot{
+        margin-bottom: 5vw;
     }
     .bot button{
         font-size: 3vw;
@@ -87,10 +153,21 @@
         background-color:#c7770ec2;
         color:rgb(0, 0, 0);
     }
-    .text-success{
-        font-size: 1vw;
+
+    .price{
+        font-size: 10px;
+        color: rgb(124, 28, 11);
+        font-family: fantasy;
     }
     .h6{
         font-size: 2px;
+    }
+    .cardimg{
+        height: 25vw;
+        background-size: contain; 
+        background-position:center;
+        width: 22vw;
+        margin:1vw auto;
+        background-repeat: no-repeat;
     }
 }

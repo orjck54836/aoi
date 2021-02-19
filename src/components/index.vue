@@ -11,10 +11,10 @@
               </label>
                 <!--手機選單-->
                 <ul class="menu" ref="menu">
-                    <router-link to="/admin/coffee" class="row  mr-2 align-items-center zenbu" @click="close">ザ.コーヒーとは</router-link>
-                    <router-link to="/admin/baking" class="row  align-items-center zenbu mr-2 " @click="close">焙煎</router-link>
+                    <router-link to="/admin/coffee" class="row  mr-3 align-items-center zenbu" @click="close">ザ.コーヒーとは</router-link>
+                    <router-link to="/admin/baking" class="row  align-items-center zenbu mr-3 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
-                    <div class="row align-items-center zenbu mr-2 " @click="goShop" v-model="check" >商品情報</div>
+                    <div class="row align-items-center zenbu mr-3 " @click="goShop" v-model="check" >商品情報</div>
                     <i class="row  fas fa-user fa-2x align-items-center user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="!check"></i>
                     <i class="row  align-items-center fas fa-sign-out-alt fa-2x user mr-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="check" @click.prevent="signOut"></i>
                     <router-link to="/admin/count" class="row align-items-center shop mr-2 " @click="close"><i class="fas fa-shopping-basket" style="padding:0"><span class="badge badge-danger badge-pill" v-if="cart.carts.length > 0">{{cart.carts.length}}</span></i></router-link>
@@ -26,7 +26,7 @@
         <main>
             <router-view></router-view>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999;overflow: auto">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -53,8 +53,8 @@
                 </div>
             </div>
         </main>
-        <footer class="bg-dark footer text-center col-md-12 mt-4">
-          <div class=" bg-dark text-light awer">
+        <footer class="footer text-center col-md-12 mt-4">
+          <div class=" text-light awer">
              Copyright© Design by LEE CHIA-HAO<br>
              僅為個人作品使用，無任何商業用途
           </div>
@@ -135,6 +135,10 @@ export default {
       if(response.data.success){
           vm.check = false
           vm.$router.push('/admin/main')
+          $('#exampleModal').modal('hide');
+          $('.modal-backdrop').remove();
+          $("body").removeClass('modal-open');
+          document.body.style.padding = 0;
       }
       })
     },

@@ -18,7 +18,7 @@
         </div>
         <!-- Search bar end-->
         <div class="col-md-3 text-center justify-content-start bot">
-            <h2 class="mt-4 mb-4">種類で探す</h2>
+            <h2 class="mt-4 mb-4" style="font-family: cursive;">種類で探す</h2>
             <button @click.prevent="searchText = ''"
               :class="{ 'active': searchText === ''}" class="allcate">
               全部現す</button><br>
@@ -28,7 +28,7 @@
                 </span>
             </button>
         </div>
-        <div class="row col-md-9 justify-content-start chose">
+        <div class="row col-md-9 justify-content-start chose mr-2 mb-4">
             <div class="col-md-4 mu mb-5" v-for="(item) in filterData" :key="item.id" >
                 <div class="card border-0 shadow-sm">
                     <div class="cardimg" :style="{backgroundImage: `url(${item.imageUrl})`}">
@@ -36,16 +36,16 @@
                     <div class="card-body">
                         <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
                         <h5 class="card-title" >
-                        <div href="#" class="text-success">{{ item.title }}</div>
+                        <div href="#">{{ item.title }}</div>
                         </h5>
                         <p class="card-text">{{ item.content }}</p>
                         <div class="d-flex justify-content-between align-items-baseline">
                         <div class="h6" v-if="!item.price">{{ item.origin_price }}円</div>
                         <div class="h6" v-if="item.price">原價 {{ item.origin_price }}円</div>
-                        <div class="h6" v-if="item.price">今なら {{ item.price }}円！</div>
+                        <div class="price" v-if="item.price">今なら {{ item.price }}円！</div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                    <button type="button" class="btn kuwashiku btn-sm"
                     @click="getProduct(item.id)">
                     詳しく見る
                     </button>

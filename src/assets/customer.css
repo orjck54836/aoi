@@ -1,6 +1,6 @@
 .allcate {
   font-size: 1.5vw;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: cursive;
   color: black;
   border-radius: 10px;
   cursor: pointer;
@@ -19,9 +19,20 @@
   font-size: 1.7vw;
 }
 
+.h6 {
+  font-size: 10px;
+  color: #352f2f;
+}
+
+.price {
+  font-size: 15px;
+  color: #7c1c0b;
+  font-family: fantasy;
+}
+
 .but {
   font-size: 1.5vw;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: cursive;
   color: black;
   border-radius: 10px;
   cursor: pointer;
@@ -42,24 +53,88 @@
   vertical-align: sub;
 }
 
+.card {
+  background-color: #fefbf4;
+  border-radius: 10px;
+}
+
 .cardimg {
   height: 22vw;
   background-size: cover;
   background-position: center;
   width: 16vw;
   margin: 1vw auto;
+  background-repeat: no-repeat;
+}
+
+.kuwashiku {
+  letter-spacing: 0;
+  background-color: #724e26;
+  color: white;
+  font-family: cursive;
+}
+
+.kuwashiku:hover, .kuwashiku:active {
+  background-color: #5f3506;
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 5px;
+}
+
+.kuwashiku:after,
+.kuwashiku:before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.kuwashiku:hover:after,
+.kuwashiku:hover:before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-color: #fff;
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 50%;
+}
+
+.kuwashiku:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 50%;
+}
+
+.card-title {
+  color: #362403;
+  font-size: 18px;
+  font-family: cursive;
+}
+
+.detail {
+  font-family: cursive;
 }
 
 @media (max-width: 480px) {
   .cust img {
     display: none;
   }
+  .card-title {
+    color: #362403;
+    font-size: 12px;
+  }
   .but span {
     vertical-align: baseline;
   }
   .mu {
     width: 40vw;
-    margin-top: 5vw;
     margin-left: 2vw;
   }
   .chose {
@@ -67,6 +142,9 @@
   }
   .search {
     display: none;
+  }
+  .bot {
+    margin-bottom: 5vw;
   }
   .bot button {
     font-size: 3vw;
@@ -92,11 +170,21 @@
     background-color: #c7770ec2;
     color: black;
   }
-  .text-success {
-    font-size: 1vw;
+  .price {
+    font-size: 10px;
+    color: #7c1c0b;
+    font-family: fantasy;
   }
   .h6 {
     font-size: 2px;
+  }
+  .cardimg {
+    height: 25vw;
+    background-size: contain;
+    background-position: center;
+    width: 22vw;
+    margin: 1vw auto;
+    background-repeat: no-repeat;
   }
 }
 /*# sourceMappingURL=customer.css.map */

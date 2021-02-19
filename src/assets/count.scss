@@ -1,6 +1,9 @@
+.count{
+  font-family: cursive;
+}
 .table{
-   -webkit-filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
-   border: 2px black solid;
+   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.7));
+   border: 1px black solid;
 }
 .table thead{
     background-color: rgba(122, 57, 10, 0.774);
@@ -11,7 +14,7 @@
     background-color: rgb(219, 218, 217);
 }
 .table tfoot{
-    background-color: rgb(65, 62, 60);
+    background-color: rgb(58, 25, 3);
     color: rgb(255, 255, 255);
     border: none;
 }
@@ -92,4 +95,3 @@
       
     }
   }
-  

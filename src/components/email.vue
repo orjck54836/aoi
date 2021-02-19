@@ -1,15 +1,15 @@
 <template>
     <div class="container">
         <div class="row">
-        <div class="col-md-6 mt-4"> 
-                <table class="table" style="border:0;">
-                <thead  class="text-light">
+        <div class="col-md-6 mt-4 count"> 
+            <table class="table">
+                <thead>
                     <th></th>
                     <th>商品</th>
                     <th>數量</th>
                     <th>定價</th>
                 </thead>
-                <tbody style="background-color:white" class=" text-dark">
+                <tbody>
                     <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts" >
                         <td class="align-middle"></td>
                         <td class="align-middle">
@@ -22,19 +22,19 @@
                         <td class="align-middle">{{ item.final_total }}</td>
                     </tr>
                 </tbody>
-                <tfoot style="background-color:gray">
+                <tfoot>
                     <tr>
                         <td colspan="3" class="text-right">総額</td>
                         <td class="text-right">{{ cart.total }}</td>
                     </tr>
-                    <tr  v-if="cart.final_total !== cart.total">
+                    <tr v-if="cart.final_total !== cart.total">
                         <td colspan="3" class="text-right text-success" >折扣價</td>
                         <td class="text-right text-success">{{ Math.round(cart.final_total) }}</td>
                     </tr>
                 </tfoot>
-                </table>
+            </table>
                 </div>
-                <form  class="col-md-6" @submit.prevent="createOrder">
+                <form  class="col-md-6 count" @submit.prevent="createOrder">
                 <div class="form-group">
                 <label for="useremail">Email</label>
                 <input type="email" class="form-control" name="email" id="useremail"

@@ -84,7 +84,7 @@ export default new Vuex.Store({
               }
             })
         },
-        updateProductQty(context, { originCartId, originProductId, newQty }) {
+        updateProductQty(context, { originCartId, originProductId, newQty}) {
             context.commit('LOADING', true);
             const delAPI = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${originCartId}`;
             const addAPI = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
