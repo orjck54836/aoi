@@ -101,6 +101,7 @@
     font-size: 18px;
     font-family: cursive;
 }
+
 .detail{
     font-family: cursive;
 }
@@ -164,10 +165,14 @@
     }
     .cardimg{
         height: 25vw;
-        background-size: contain; 
+        background-size:cover; 
         background-position:center;
         width: 22vw;
         margin:1vw auto;
         background-repeat: no-repeat;
+    }
+    .card-text{
+        font-size: 2px;
+        color: rgb(255, 255, 255);
     }
 }

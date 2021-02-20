@@ -60,13 +60,21 @@
                 <div class="imageBanner mb-4 mt-2 col-md-11" style="margin:auto;display:block">
                     <img src="./images/web_coupon.png" class="coupon col-md-6 shake shake-slow" data-aos="fade-right"　data-aos-duration="2000">
                     <img src="http://design-library.jp/wp-content/uploads/1596972793_3fd22d4d.jpg" class="col-md-5" data-aos="fade-left"　data-aos-duration="3000">
-                </div>    
-                <div class="imgkkk"> 
-                    <iframe  class="video col-md-5"src="https://www.youtube.com/embed/SiNDnJLag7o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                    <h3>10分のアニメで、コーヒーの歴史について学びましょう。<br>
-                        コーヒーの文化は人々を魅了し、世界中に広がりました。 
-                    </h3>
+                </div><hr>
+                <div　class="slogan1 mb-4">本店のおすすめ</div>    
+                <div class="imgkkk container"> 
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="card swiper-slide col-md-3" style="cursor:pointer; margin: 2vw 30px 2vw 2vw;padding:0" v-for="item in products" :key="item.id" @click="getProduct(item.id)">
+                                <img class="cardimg" :style="{backgroundImage: `url(${item.imageUrl})`}" style="border:0">
+                                <div class="">
+                                    <p class="card-text">{{ item.title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999">
@@ -102,10 +110,15 @@
                 </div>
             </footer>
         </div>
+        
     </div>
 </template>
 <script>
 import  $ from "jquery";
+import 'swiper/swiper-bundle.css';
+import Swiper from 'swiper';
+import SwiperCore, { Navigation, Pagination } from 'swiper/core';
+
 export default {
   data() {
         return {
@@ -119,6 +132,7 @@ export default {
             check:false,
         };
   },
+
   beforeRouteEnter(to, from, next) {
     window.document.body.style.background='#fefbf4'
     next()
@@ -128,7 +142,17 @@ export default {
     next()
   },
   mounted() {
-        window.addEventListener("scroll", this.windowScroll); //监听页面滚动
+    window.addEventListener("scroll", this.windowScroll); //监听页面滚动
+    new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        observer:true,//修改swiper自己或子元素時，自動初始化swiper    重要
+        observeParents:true,//修改swiper的父元素時，自動初始化swiper  重要
+    });
   },
   methods:{
         windowScroll() {
@@ -181,6 +205,14 @@ export default {
     getCart(){
     this.$store.dispatch('getCart');
     },
+    getProduct(id){
+        const vm = this;
+        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
+        this.$http.post(api).then((response) => {                     
+        vm.product = response.data.product;
+        vm.$router.push(`/admin/customer_order/detail/${id}`)
+        });
+    },
     loging(){
         const api = `${process.env.APIPATH}/api/user/check`;
         this.$http.post(api).then((response) => {
@@ -193,6 +225,9 @@ export default {
             }
         })
     },
+    getProducts(){
+            this.$store.dispatch('getProducts')
+    },
   },
   destroyed() {
 			window.removeEventListener("scroll", this.windowScroll); //销毁滚动事件
@@ -200,6 +235,7 @@ export default {
   created(){
       this.getCart();
       this.loging();
+      this.getProducts();
       //網址來源https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
       const cookieValue = document.cookie.split(';').find(row => row.startsWith('hexToken'))
       .split('=')[1];
@@ -213,6 +249,9 @@ export default {
     },
     cart(){
       return this.$store.state.cart
+    },
+    products(){
+            return this.$store.state.products;
     }
   },
 }

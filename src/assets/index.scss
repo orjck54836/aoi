@@ -66,6 +66,15 @@ main{
     margin-top: 3vw;
     font-family: cursive;
 }
+.slogan1{
+    text-align: center;
+    z-index:1;
+    text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
+    color: white;
+    font-size: 30px;
+    margin-top: 3vw;
+    font-family: cursive;
+}
 .user{
     display: inline-flex;
     padding: 15px;
@@ -201,16 +210,12 @@ hr{
 }
 .imgkkk{
     background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZmZlZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-    height: 35vw;
 }
 .video{
     margin: auto;
-    height: 30vh;
+    height: 35vh;
 }
-.imgkkk h3{
-    color: white;
-    font-family: cursive;
-}
+
 .footer{
     height:10vh;
     background-color: rgb(54, 36, 3);
@@ -249,7 +254,15 @@ hr{
         color: white;
         text-align: center;
         font-size: 30px;
-        font-family: fantasy;
+        font-family: cursive;
+    }
+    .slogan1{
+        z-index:1;
+        text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        font-family: cursive;
     }
     .hamburger1 {
         width: 45px;
@@ -462,12 +475,6 @@ hr{
     }
     .anf{
         display: none;
-    }
-    .imgkkk{
-        background-image: none;
-    }
-    .imgkkk h3{
-        background-image: none;
     }
     .video{
         margin: auto;

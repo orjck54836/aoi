@@ -12,6 +12,8 @@ import AOS from 'aos'
 import Vuex from 'vuex'
 import 'aos/dist/aos.css'
 import store from '../src/store/indeX'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 
 import currencyFilter from './filters/currency'
 //下方載入中文語系
@@ -20,6 +22,7 @@ import './bus'
 import router from './router'
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate)
+Vue.use(VueAwesomeSwiper)
 import App from './App'
 Vue.config.productionTip = false
 Vue.component('Loading',Loading)

@@ -180,11 +180,15 @@
   }
   .cardimg {
     height: 25vw;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     width: 22vw;
     margin: 1vw auto;
     background-repeat: no-repeat;
+  }
+  .card-text {
+    font-size: 2px;
+    color: white;
   }
 }
 /*# sourceMappingURL=customer.css.map */
