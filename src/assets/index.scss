@@ -60,8 +60,8 @@ main{
 .slogan{
     text-align: center;
     z-index:1;
-    text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
-    color: white;
+    text-shadow: 0px 0px 1px black, 0px 0px 2px black; 
+    color: rgb(0, 0, 0);
     font-size: 30px;
     margin-top: 3vw;
     font-family: cursive;
@@ -69,8 +69,8 @@ main{
 .slogan1{
     text-align: center;
     z-index:1;
-    text-shadow: 2px 3px 1px black, 0px 0px 2px black; 
-    color: white;
+    text-shadow: 0px 0px 1px black, 0px 0px 2px black; 
+    color: rgb(0, 0, 0);
     font-size: 30px;
     margin-top: 3vw;
     font-family: cursive;
@@ -208,9 +208,9 @@ hr{
 .imageBanner{
     display: flex;
 }
-.imgkkk{
-    background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZmZlZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-}
+// .imgkkk{
+//     background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZmZlZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
+// }
 .video{
     margin: auto;
     height: 35vh;
@@ -305,6 +305,16 @@ hr{
         right: 0;
         bottom: 0;
         box-shadow: 0px 8px 0px #000000, 0px -8px 0px #000000;
+    }
+    .btn-close{
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        display: block;
+        cursor: pointer;
+        font-size: 5vw;
     }
     .menu {
         display: block;
@@ -475,10 +485,6 @@ hr{
     }
     .anf{
         display: none;
-    }
-    .video{
-        margin: auto;
-        height: 40vw;
     }
     .footer{
         height:10vh;

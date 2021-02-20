@@ -6,9 +6,10 @@
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md">
               <input type="checkbox" name="menu-switcher" id="menu-switcher" v-model="hammenucheck" @click="this.hammenucheck = !this.hammenucheck"/>
-              <label for="menu-switcher" class="hamburger">
-                <div class="hamburger-line"></div>
+              <label for="menu-switcher" class="hamburger" v-if="!hammenucheck">
+                <div class="hamburger-line" ></div>
               </label>
+              <label for="menu-switcher" class="btn-close" aria-label="Close" v-if="hammenucheck"></label>
                 <!--手機選單-->
                 <ul class="menu" ref="menu">
                     <router-link to="/admin/coffee" class="row  mr-3 align-items-center zenbu" @click="close">ザ.コーヒーとは</router-link>

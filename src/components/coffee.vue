@@ -4,7 +4,7 @@
             <div class="row text-center justify-content-center">
                 <p class="text-success space">ABOUT KOHIKAN</p>
                 <h2 class="">一杯のコーヒーに心をこめて</h2>
-                <h6 class="col-md-12 mt-md-5 " data-aos="zoom-in" data-aos-duration="2000" style="text-align:left;">
+                <h6 class="col-md-12 mt-md-5 " data-aos="zoom-in" data-aos-duration="2000" style="text-align:center;">
                     私たち珈琲館は、このスローガンから始まりました。<br>
                     以来、一貫して品質本位・お客様最優先の経営姿勢を貫いています。<br>
                     くつろぎのひとときや楽しい語らい・静かな思索、<br>

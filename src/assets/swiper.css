@@ -6,10 +6,11 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #462b02;
-  color: white;
+  background: #fefbf4;
+  color: black;
   font-family: cursive;
   opacity: 0.9;
+  border-color: #ebe6dd;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -24,7 +25,7 @@
 
 @media (max-width: 480px) {
   .swiper-slide {
-    background: #57230b;
+    background: #fcf9f7;
   }
 }
 /*# sourceMappingURL=swiper.css.map */

@@ -4,11 +4,12 @@
         <header class="site-header1 col-md-12" :style="style">
          <router-link to="/admin/main"><img src="./images/logo.gif" class="col-md-2  justify-content-center logo1"></router-link>
             <nav class="container d-flex flex-column flex-md-row justify-content-end navbar-expand-md">
-              <input type="checkbox" name="menu-switcher" id="menu-switcher" />
-              <label for="menu-switcher" class="hamburger1">
+              <input type="checkbox" name="menu-switcher" id="menu-switcher" v-model="hammenucheck" @click="this.hammenucheck = !this.hammenucheck"/>
+              <label for="menu-switcher" class="hamburger1" v-if="!hammenucheck">
                 <div class="hamburger-line1"></div>
               </label>
-                <ul class="menu">
+              <label for="menu-switcher" class="btn-close btn-close-white" aria-label="Close" v-if="hammenucheck"></label>
+                <ul class="menu" ref="menu">
                     <router-link to="/admin/coffee" class="row mr-3 align-items-center zenbu1" @click="close">ザ.コーヒーとは</router-link>
                     <router-link to="/admin/baking" class="row align-items-center zenbu1 mr-3 " @click="close">焙煎</router-link>
                     <!-- 按鈕區 -->
@@ -120,6 +121,14 @@ import Swiper from 'swiper';
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 
 export default {
+    watch: {
+    $route (to,from) {
+      console.log(to.path,from.path) // 查看目前要前往的路徑是否與目前路徑相同
+      if(to.path !== from.path) {
+        this.hammenucheck = false;
+      }
+    }
+  }, 
   data() {
         return {
             le:'',
@@ -130,6 +139,7 @@ export default {
             style: {},
             opacity: 0,
             check:false,
+            hammenucheck:false,
         };
   },
 
@@ -252,6 +262,13 @@ export default {
     },
     products(){
             return this.$store.state.products;
+    },
+    switchmenu () {
+      if(this.hammenucheck) {
+      this.$refs.menu.style.transform = 'translateX(0%)';
+      } else {
+      this.$refs.menu.style.transform = 'translateX(-100%)';
+      }
     }
   },
 }
