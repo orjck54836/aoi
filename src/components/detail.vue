@@ -73,7 +73,7 @@ export default {
         },
         deCount(qty){
             const vm = this;
-            vm.product.qty--;
+            vm.qty--;
             if(vm.qty<1){
                 vm.qty = 1;
             }
