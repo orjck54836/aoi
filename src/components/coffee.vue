@@ -13,7 +13,7 @@
                     すぐそばにある「珈琲館」とゆったりとした「ロードサイド珈琲館」。<br>
                     本物の美味しさをお楽しみください。<br>
                 </h6>
-                <img src="./images/beans.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000" style="margin-bottom:10vw ">
+                <img src="./images/beans.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000" style="margin-bottom:10vw;height:45vw">
                 <div class="col-md-6 space">
                 <p class="text-success">INTRODUCTION OF COFFEE BEANS</p>
                     <h3>格別な味と香り、独特のコクが<br>
@@ -35,7 +35,7 @@
                     煎り上げてつくられた、
                     本格派コーヒーの香りとコクをお楽しみください。</h6>
                 </div>
-                 <img src="./images/express.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000">
+                 <img src="./images/express.jpg" class="col-md-9" data-aos="zoom-in" data-aos-duration="3000" style="height:45vw">
             </div>      
         </div><br><br>
     </div>

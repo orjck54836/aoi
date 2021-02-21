@@ -290,16 +290,28 @@ hr {
 
 @media (max-width: 480px) {
   .site-header {
-    height: 8vh;
+    height: 10vh;
   }
   .site-header1 {
-    height: 8vh;
+    height: 10vh;
   }
   .site-header img {
     width: 25vw;
   }
   .site-header1 img {
     width: 25vw;
+  }
+  .logo {
+    -webkit-filter: invert(0%);
+            filter: invert(0%);
+    margin-top: 2vw;
+    margin-left: 4vw;
+  }
+  .logo1 {
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
+    margin-top: 2vw;
+    margin-left: 4vw;
   }
   #space {
     height: 10vh;
