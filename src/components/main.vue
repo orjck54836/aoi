@@ -187,6 +187,7 @@ export default {
             vm.check = true;
           }else{
             alert('請輸入正確帳號密碼')
+            vm.$store.state.isLoading = false;
           }
         }) 
     },
