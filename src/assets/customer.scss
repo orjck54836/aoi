@@ -104,7 +104,13 @@
 
 .detail{
     font-family: cursive;
-    
+}
+
+.detailimg{
+    height:20vw;
+    background-size:contain;
+    background-position: center;
+    background-repeat:no-repeat;
 }
 @media (max-width: 480px){
     .cust img{
@@ -169,5 +175,11 @@
     .card-text{
         font-size: 3vw;
         color: rgb(56, 20, 9);
+    }
+    .detailimg{
+        height:50vw;
+        background-size:contain;
+        background-position: center;
+        background-repeat:no-repeat;
     }
 }

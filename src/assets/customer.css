@@ -122,6 +122,13 @@
   font-family: cursive;
 }
 
+.detailimg {
+  height: 20vw;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media (max-width: 480px) {
   .cust img {
     display: none;
@@ -184,6 +191,12 @@
   .card-text {
     font-size: 3vw;
     color: #381409;
+  }
+  .detailimg {
+    height: 50vw;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 /*# sourceMappingURL=customer.css.map */

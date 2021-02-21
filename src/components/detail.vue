@@ -1,7 +1,7 @@
 <template>
     <div class="row col-md-12" style="margin: 0;">
         <div class="col-md-4">            
-            <div style="height:50vw; background-size:contain;background-position: center;background-repeat:no-repeat;" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
+            <div class="detailimg" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
         </div>
         <div class="col-md-8 detail">
             <h3 class="text-left mb-4">{{product.title}}</h3>
