@@ -208,12 +208,15 @@ hr{
 .imageBanner{
     display: flex;
 }
-// .imgkkk{
-//     background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZmZlZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-// }
-.video{
-    margin: auto;
-    height: 35vh;
+.anf1{
+    width: 30%;
+    height: 20vw;
+    
+}
+.anf{
+    width: 30%;
+    height: 20vw;
+    z-index:-9999;
 }
 
 .footer{

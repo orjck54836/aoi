@@ -38,7 +38,7 @@
                         </div>
                     </div>
                         <div class="carousel-item ">
-                            <img src="./images/banner2.jpg" class="col-md-12 " style="padding:0">
+                            <img src="./images/banner2.gif" class="col-md-12 " style="padding:0">
                             <div class="carousel-caption d-none d-md-block">
                                 <h3 style="position:relative;top:-40vw; left:1vw;text-align:left;font-family: cursive;">
                                     1粒の種から1杯のカップまで<br>
@@ -53,10 +53,15 @@
                     </div>
                 </div>
                 <div class="slogan mb-4" data-aos="zoom-in">コーヒーは飲むことができる一種の魔法である</div><hr>
+                <div class="row col-md-12 justify-content-center pic" style="margin:auto;position: absolute;bottom:-61vh">
+                    <span><img src="./images/asaiz.png" class="col-md-3 col-sm-3 anf"></span>
+                    <span><img src="./images/nakaz.png" class="col-md-3 col-sm-3 anf"></span>
+                    <span><img src="./images/fukaiz.png" class="col-md-3 col-sm-3 anf" ></span>
+                </div>
                 <div class="row col-md-12 justify-content-center pic" style="margin:3vw auto 5vw">
-                    <span><img src="./images/asai.png" class="col-md-3 anf1"><img src="./images/asaiz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999;margin-right:49vw"></span>
-                    <span><img src="./images/naka.png" class="col-md-3 anf1"><img src="./images/nakaz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999"></span>
-                <span><img src="./images/fukai.png" class="col-md-3 anf1"><img src="./images/fukaiz.png" class="col-md-3 col-sm-3 anf" style="position:absolute;z-index:-9999;margin-left:49vw"></span>
+                    <span><img src="./images/asai.png" class="col-md-3 anf1"></span>
+                    <span><img src="./images/naka.png" class="col-md-3 anf1"></span>
+                    <span><img src="./images/fukai.png" class="col-md-3 anf1"></span>
                 </div><hr>
                 <div class="imageBanner mb-4 mt-2 col-md-11" style="margin:auto;display:block">
                     <img src="./images/web_coupon.png" class="coupon col-md-6 shake shake-slow" data-aos="fade-right"　data-aos-duration="2000">

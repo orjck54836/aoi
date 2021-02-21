@@ -267,9 +267,15 @@ hr {
   display: flex;
 }
 
-.video {
-  margin: auto;
-  height: 35vh;
+.anf1 {
+  width: 30%;
+  height: 20vw;
+}
+
+.anf {
+  width: 30%;
+  height: 20vw;
+  z-index: -9999;
 }
 
 .footer {
