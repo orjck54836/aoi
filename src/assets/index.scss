@@ -22,7 +22,7 @@ html{
     margin-left:8px;
 }
 .site-header1 {
-    height:10vh;
+    height:8vh;
     display:flex;
     position: fixed;
     z-index:9999;
@@ -232,7 +232,10 @@ hr{
 }
 @media (max-width: 480px){
     .site-header{
-        height: 10vh;
+        height: 8vh;
+    }
+    .site-header1{
+        height: 8vh;
     }
     .site-header img{
         width:25vw

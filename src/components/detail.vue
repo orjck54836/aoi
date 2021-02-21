@@ -12,7 +12,7 @@
             <button @click.prevent="deCount">-</button>
             <input type="text" v-model="qty" readonly>
             <button @click.prevent="plCount">+</button>
-            <button class="bg-secondary mb-4 rounded" @click.prevent="addCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
+            <button class="bg-secondary mt-4 rounded" @click.prevent="addCart(product.id,qty)"><i class="fas fa-shopping-cart"></i>カートに入れる</button>
             <div class="text-success mb-3" v-if="moji">{{moji}}</div>
         </div>
     </div>

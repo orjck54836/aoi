@@ -60,7 +60,7 @@
                 </div><hr>
                 <div class="imageBanner mb-4 mt-2 col-md-11" style="margin:auto;display:block">
                     <img src="./images/web_coupon.png" class="coupon col-md-6 shake shake-slow" data-aos="fade-right"　data-aos-duration="2000">
-                    <img src="http://design-library.jp/wp-content/uploads/1596972793_3fd22d4d.jpg" class="col-md-5" data-aos="fade-left"　data-aos-duration="3000">
+                    <img src="./images/bannermame.gif" class="col-md-5" data-aos="fade-left"　data-aos-duration="3000">
                 </div><hr>
                 <div　class="slogan1 mb-4">本店のおすすめ</div>    
                 <div class="imgkkk container"> 
