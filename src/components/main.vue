@@ -53,12 +53,12 @@
                     </div>
                 </div>
                 <div class="slogan mb-4" data-aos="zoom-in">コーヒーは飲むことができる一種の魔法である</div><hr>
-                <div class="row col-md-12 justify-content-center pic" style="margin:auto;position: absolute;bottom:-61vh">
+                <div class="row col-md-12 justify-content-center pic" style="margin:3vw auto 5vw;position:absolute;">
                     <span><img src="./images/asaiz.png" class="col-md-3 col-sm-3 anf"></span>
                     <span><img src="./images/nakaz.png" class="col-md-3 col-sm-3 anf"></span>
                     <span><img src="./images/fukaiz.png" class="col-md-3 col-sm-3 anf" ></span>
                 </div>
-                <div class="row col-md-12 justify-content-center pic" style="margin:3vw auto 5vw">
+                <div class="row col-md-12 justify-content-center pic" style="margin:3vw auto 5vw;position:relative">
                     <span><img src="./images/asai.png" class="col-md-3 anf1"></span>
                     <span><img src="./images/naka.png" class="col-md-3 anf1"></span>
                     <span><img src="./images/fukai.png" class="col-md-3 anf1"></span>
