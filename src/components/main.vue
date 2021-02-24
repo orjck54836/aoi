@@ -261,20 +261,20 @@ export default {
   },
   computed:{
     isLoading(){
-      return this.$store.state.isLoading
+        return this.$store.state.isLoading
     },
     cart(){
-      return this.$store.state.cart
+        return this.$store.state.cart
     },
     products(){
-            return this.$store.state.products;
+        return this.$store.state.products;
     },
     switchmenu () {
-      if(this.hammenucheck) {
-      this.$refs.menu.style.transform = 'translateX(0%)';
-      } else {
-      this.$refs.menu.style.transform = 'translateX(-100%)';
-      }
+        if(this.hammenucheck) {
+        this.$refs.menu.style.transform = 'translateX(0%)';
+        } else {
+        this.$refs.menu.style.transform = 'translateX(-100%)';
+        }
     }
   },
 }

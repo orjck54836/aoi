@@ -103,6 +103,7 @@
     }
 </style>
 <script>
+import {mapGetters,mapActions} from 'vuex'
 export default {
         data(){
         return{
@@ -131,9 +132,6 @@ export default {
         };
     },
     methods:{
-        getProducts(){
-            this.$store.dispatch('getProducts')
-        },
         getProduct(id){
             const vm = this;
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
@@ -157,6 +155,7 @@ export default {
            })
            vm.categories = Array.form(category)
         },
+        ...mapActions(['getProducts'])
     },
     computed: {
         filterData() {
@@ -169,12 +168,7 @@ export default {
             }
             return this.products;
         },
-        categories(){
-            return this.$store.state.categories;
-        },
-        products(){
-            return this.$store.state.products;
-        }
+        ...mapGetters(['categories','products'])
     },
     created() {
     this.getProducts();

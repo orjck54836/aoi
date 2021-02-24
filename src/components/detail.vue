@@ -45,7 +45,7 @@ export default {
             console.log('hhh',vm.product)
             });
         },
-        addCart(id, qty) {
+        addCart(id, qty){
             const target = this.cart.carts.filter(items => items.product_id === id);
             if (target.length > 0) {
                 const sameCartItem = target[0];
