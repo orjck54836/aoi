@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default{
+    namespaced:true,
     state: {
         products: [],
         categories:[],
@@ -20,11 +21,10 @@ export default{
       actions: {
         getProducts(context){
             const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products/all`;
-            context.commit('LOADING',true)
             axios.get(api).then((response) => {
             context.commit('PRODUCTS',response.data.products)
             context.commit('CATEGORIES',response.data.products)
-            context.commit('LOADING',false)
+
             });
         },  
     },

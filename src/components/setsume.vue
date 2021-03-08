@@ -155,7 +155,7 @@ export default {
            })
            vm.categories = Array.form(category)
         },
-        ...mapActions(['getProducts'])
+        ...mapActions('productsModules',['getProducts'])
     },
     computed: {
         filterData() {
@@ -168,7 +168,7 @@ export default {
             }
             return this.products;
         },
-        ...mapGetters(['categories','products'])
+        ...mapGetters('productsModules',['categories','products'])
     },
     created() {
     this.getProducts();

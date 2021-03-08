@@ -65,6 +65,7 @@
 <script>
 import  $ from "jquery";
 import alert from './alertMessage.vue'
+import {mapGetters,mapActions} from 'vuex';
 export default {
   watch: {
     $route (to,from) {
@@ -184,9 +185,6 @@ export default {
       this.$http.defaults.headers.common.Authorization = cookieValue;
   },
   computed:{
-    isLoading(){
-      return this.$store.state.isLoading
-    },
     cart(){
       return this.$store.state.cart
     },
@@ -196,7 +194,8 @@ export default {
       } else {
       this.$refs.menu.style.transform = 'translateX(-100%)';
       }
-    }
+    },
+    ...mapGetters(['isLoading'])
   },
 }
 </script>

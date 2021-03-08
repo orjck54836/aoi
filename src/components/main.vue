@@ -124,7 +124,7 @@ import  $ from "jquery";
 import 'swiper/swiper-bundle.css';
 import Swiper from 'swiper';
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
-
+import {mapGetters,mapActions} from 'vuex';
 export default {
     watch: {
     $route (to,from) {
@@ -170,12 +170,12 @@ export default {
     });
   },
   methods:{
-        windowScroll() {
+    windowScroll() {
           let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
           this.opacity = Math.abs(Math.round(scrollTop)) / 250;
           this.style = {background: `rgba(0, 0, 0,${this.opacity})`}
 			  },
-        signIn(){
+    signIn(){
         const api = `${process.env.APIPATH}/admin/signin`
         // const api = 'https://vue-course-api.hexschool.io/api/orjck54836/products';
         const vm = this;
@@ -196,7 +196,7 @@ export default {
           }
         }) 
     },
-        signOut(){
+    signOut(){
         const api =`${process.env.APIPATH}/logout`;
         const vm = this;
         console.log(api)
@@ -241,9 +241,7 @@ export default {
             }
         })
     },
-    getProducts(){
-            this.$store.dispatch('getProducts')
-    },
+    ...mapActions('productsModules',['getProducts'])
   },
   destroyed() {
 			window.removeEventListener("scroll", this.windowScroll); //销毁滚动事件
@@ -260,14 +258,8 @@ export default {
       this.$http.defaults.headers.common.Authorization = cookieValue;
   },
   computed:{
-    isLoading(){
-        return this.$store.state.isLoading
-    },
     cart(){
         return this.$store.state.cart
-    },
-    products(){
-        return this.$store.state.products;
     },
     switchmenu () {
         if(this.hammenucheck) {
@@ -275,7 +267,8 @@ export default {
         } else {
         this.$refs.menu.style.transform = 'translateX(-100%)';
         }
-    }
+    },
+    ...mapGetters('productsModules',['isLoading','products'])
   },
 }
 </script>

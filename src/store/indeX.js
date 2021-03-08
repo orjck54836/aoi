@@ -80,7 +80,9 @@ export default new Vuex.Store({
         },      
     },
     getters:{
-
+      isLoading(state){
+          return state.isLoading
+      },
     },
     modules:{
       productsModules,
